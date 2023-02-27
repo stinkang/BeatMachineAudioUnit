@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "BeatMachineExtensionDSPKernel::recordInputToSoundBuffer(AudioBufferList const*, unsigned int):BeatMachineExtensionDSPKernel.hpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(float*)inBufferList-&gt;mBuffers[0].mData;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BeatMachineExtensionDSPKernel::process(std::__1::span&lt;float const*, 18446744073709551615ul&gt;, std::__1::span&lt;float*, 18446744073709551615ul&gt;, long long, unsigned int):BeatMachineExtensionDSPKernel.hpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "inputBuffers[channel][frameIndex]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

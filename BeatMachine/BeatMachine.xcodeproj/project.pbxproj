@@ -1,0 +1,992 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		968D9C80299978CF0021FB2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9C7F299978CF0021FB2D /* ContentView.swift */; };
+		968D9C84299978CF0021FB2D /* ViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9C83299978CF0021FB2D /* ViewControllerRepresentable.swift */; };
+		968D9C87299978CF0021FB2D /* Synth.aif in Resources */ = {isa = PBXBuildFile; fileRef = 968D9C86299978CF0021FB2D /* Synth.aif */; };
+		968D9C89299978CF0021FB2D /* SimplePlayEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9C88299978CF0021FB2D /* SimplePlayEngine.swift */; };
+		968D9C8C299978CF0021FB2D /* MIDIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9C8B299978CF0021FB2D /* MIDIManager.swift */; };
+		968D9C8E299978CF0021FB2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9C8D299978CF0021FB2D /* TypeAliases.swift */; };
+		968D9C91299978CF0021FB2D /* StringHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9C90299978CF0021FB2D /* StringHelpers.swift */; };
+		968D9C94299978CF0021FB2D /* AudioUnitHostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9C93299978CF0021FB2D /* AudioUnitHostModel.swift */; };
+		968D9C96299978CF0021FB2D /* AudioUnitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9C95299978CF0021FB2D /* AudioUnitViewModel.swift */; };
+		968D9C98299978CF0021FB2D /* BeatMachineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9C97299978CF0021FB2D /* BeatMachineApp.swift */; };
+		968D9C9B299978CF0021FB2D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968D9C9A299978CF0021FB2D /* Preview Assets.xcassets */; };
+		968D9C9D299978D10021FB2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968D9C9C299978D10021FB2D /* Assets.xcassets */; };
+		968D9CA8299978D10021FB2D /* BeatMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CA7299978D10021FB2D /* BeatMachineTests.swift */; };
+		968D9CB2299978D10021FB2D /* BeatMachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CB1299978D10021FB2D /* BeatMachineUITests.swift */; };
+		968D9CB4299978D10021FB2D /* BeatMachineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CB3299978D10021FB2D /* BeatMachineUITestsLaunchTests.swift */; };
+		968D9CBA299978D10021FB2D /* BeatMachineExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 968D9CB9299978D10021FB2D /* BeatMachineExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		968D9CBF299978D10021FB2D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 968D9CBE299978D10021FB2D /* README.md */; };
+		968D9CC4299978D10021FB2D /* ParameterSpecBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CC3299978D10021FB2D /* ParameterSpecBase.swift */; };
+		968D9CC7299978D10021FB2D /* CrossPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CC6299978D10021FB2D /* CrossPlatform.swift */; };
+		968D9CC9299978D10021FB2D /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CC8299978D10021FB2D /* String+Utils.swift */; };
+		968D9CCD299978D10021FB2D /* BeatMachineExtensionAudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CCC299978D10021FB2D /* BeatMachineExtensionAudioUnit.mm */; };
+		968D9CD0299978D10021FB2D /* BeatMachineExtensionAUProcessHelper.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 968D9CCF299978D10021FB2D /* BeatMachineExtensionAUProcessHelper.hpp */; };
+		968D9CD2299978D10021FB2D /* BeatMachineExtensionBufferedAudioBus.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 968D9CD1299978D10021FB2D /* BeatMachineExtensionBufferedAudioBus.hpp */; };
+		968D9CD6299978D10021FB2D /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CD5299978D10021FB2D /* Parameters.swift */; };
+		968D9CD9299978D10021FB2D /* BeatMachineExtensionDSPKernel.hpp in Resources */ = {isa = PBXBuildFile; fileRef = 968D9CD8299978D10021FB2D /* BeatMachineExtensionDSPKernel.hpp */; };
+		968D9CDC299978D10021FB2D /* BeatMachineExtensionMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CDB299978D10021FB2D /* BeatMachineExtensionMainView.swift */; };
+		968D9CDE299978D10021FB2D /* ParameterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CDD299978D10021FB2D /* ParameterSlider.swift */; };
+		968D9CE3299978D10021FB2D /* AudioUnitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968D9CE1299978D10021FB2D /* AudioUnitViewController.xib */; };
+		968D9CE5299978D10021FB2D /* ObservableAUParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CE4299978D10021FB2D /* ObservableAUParameter.swift */; };
+		968D9CE7299978D10021FB2D /* AudioUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CE6299978D10021FB2D /* AudioUnitViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		968D9CA4299978D10021FB2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 968D9C74299978CF0021FB2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 968D9C7B299978CF0021FB2D;
+			remoteInfo = BeatMachine;
+		};
+		968D9CAE299978D10021FB2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 968D9C74299978CF0021FB2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 968D9C7B299978CF0021FB2D;
+			remoteInfo = BeatMachine;
+		};
+		968D9CBB299978D10021FB2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 968D9C74299978CF0021FB2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 968D9CB8299978D10021FB2D;
+			remoteInfo = BeatMachineExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		968D9CEE299978D10021FB2D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				968D9CBA299978D10021FB2D /* BeatMachineExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		968D9C7C299978CF0021FB2D /* BeatMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		968D9C7F299978CF0021FB2D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		968D9C83299978CF0021FB2D /* ViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		968D9C86299978CF0021FB2D /* Synth.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Synth.aif; sourceTree = "<group>"; };
+		968D9C88299978CF0021FB2D /* SimplePlayEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePlayEngine.swift; sourceTree = "<group>"; };
+		968D9C8B299978CF0021FB2D /* MIDIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIManager.swift; sourceTree = "<group>"; };
+		968D9C8D299978CF0021FB2D /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		968D9C90299978CF0021FB2D /* StringHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelpers.swift; sourceTree = "<group>"; };
+		968D9C93299978CF0021FB2D /* AudioUnitHostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitHostModel.swift; sourceTree = "<group>"; };
+		968D9C95299978CF0021FB2D /* AudioUnitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewModel.swift; sourceTree = "<group>"; };
+		968D9C97299978CF0021FB2D /* BeatMachineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatMachineApp.swift; sourceTree = "<group>"; };
+		968D9C9A299978CF0021FB2D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		968D9C9C299978D10021FB2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		968D9C9E299978D10021FB2D /* BeatMachine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BeatMachine.entitlements; sourceTree = "<group>"; };
+		968D9CA3299978D10021FB2D /* BeatMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeatMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		968D9CA7299978D10021FB2D /* BeatMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatMachineTests.swift; sourceTree = "<group>"; };
+		968D9CAD299978D10021FB2D /* BeatMachineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeatMachineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		968D9CB1299978D10021FB2D /* BeatMachineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatMachineUITests.swift; sourceTree = "<group>"; };
+		968D9CB3299978D10021FB2D /* BeatMachineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatMachineUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		968D9CB9299978D10021FB2D /* BeatMachineExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BeatMachineExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		968D9CBE299978D10021FB2D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		968D9CC1299978D10021FB2D /* BeatMachineExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BeatMachineExtension-Bridging-Header.h"; sourceTree = "<group>"; };
+		968D9CC3299978D10021FB2D /* ParameterSpecBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterSpecBase.swift; sourceTree = "<group>"; };
+		968D9CC6299978D10021FB2D /* CrossPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossPlatform.swift; sourceTree = "<group>"; };
+		968D9CC8299978D10021FB2D /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		968D9CCB299978D10021FB2D /* BeatMachineExtensionAudioUnit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeatMachineExtensionAudioUnit.h; sourceTree = "<group>"; };
+		968D9CCC299978D10021FB2D /* BeatMachineExtensionAudioUnit.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BeatMachineExtensionAudioUnit.mm; sourceTree = "<group>"; };
+		968D9CCF299978D10021FB2D /* BeatMachineExtensionAUProcessHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BeatMachineExtensionAUProcessHelper.hpp; sourceTree = "<group>"; };
+		968D9CD1299978D10021FB2D /* BeatMachineExtensionBufferedAudioBus.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BeatMachineExtensionBufferedAudioBus.hpp; sourceTree = "<group>"; };
+		968D9CD4299978D10021FB2D /* BeatMachineExtensionParameterAddresses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeatMachineExtensionParameterAddresses.h; sourceTree = "<group>"; };
+		968D9CD5299978D10021FB2D /* Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
+		968D9CD8299978D10021FB2D /* BeatMachineExtensionDSPKernel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BeatMachineExtensionDSPKernel.hpp; sourceTree = "<group>"; };
+		968D9CDB299978D10021FB2D /* BeatMachineExtensionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatMachineExtensionMainView.swift; sourceTree = "<group>"; };
+		968D9CDD299978D10021FB2D /* ParameterSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterSlider.swift; sourceTree = "<group>"; };
+		968D9CE2299978D10021FB2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = AudioUnitViewController.xib; sourceTree = "<group>"; };
+		968D9CE4299978D10021FB2D /* ObservableAUParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableAUParameter.swift; sourceTree = "<group>"; };
+		968D9CE6299978D10021FB2D /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
+		968D9CE8299978D10021FB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		968D9C79299978CF0021FB2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968D9CA0299978D10021FB2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968D9CAA299978D10021FB2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968D9CB6299978D10021FB2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		968D9C73299978CF0021FB2D = {
+			isa = PBXGroup;
+			children = (
+				968D9C7E299978CF0021FB2D /* BeatMachine */,
+				968D9CA6299978D10021FB2D /* BeatMachineTests */,
+				968D9CB0299978D10021FB2D /* BeatMachineUITests */,
+				968D9CBD299978D10021FB2D /* BeatMachineExtension */,
+				968D9C7D299978CF0021FB2D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		968D9C7D299978CF0021FB2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				968D9C7C299978CF0021FB2D /* BeatMachine.app */,
+				968D9CA3299978D10021FB2D /* BeatMachineTests.xctest */,
+				968D9CAD299978D10021FB2D /* BeatMachineUITests.xctest */,
+				968D9CB9299978D10021FB2D /* BeatMachineExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		968D9C7E299978CF0021FB2D /* BeatMachine */ = {
+			isa = PBXGroup;
+			children = (
+				968D9C7F299978CF0021FB2D /* ContentView.swift */,
+				968D9C97299978CF0021FB2D /* BeatMachineApp.swift */,
+				968D9C9C299978D10021FB2D /* Assets.xcassets */,
+				968D9C9E299978D10021FB2D /* BeatMachine.entitlements */,
+				968D9C81299978CF0021FB2D /* Common */,
+				968D9C92299978CF0021FB2D /* Model */,
+				968D9C99299978CF0021FB2D /* Preview Content */,
+			);
+			path = BeatMachine;
+			sourceTree = "<group>";
+		};
+		968D9C81299978CF0021FB2D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				968D9C8D299978CF0021FB2D /* TypeAliases.swift */,
+				968D9C82299978CF0021FB2D /* UI */,
+				968D9C85299978CF0021FB2D /* Audio */,
+				968D9C8A299978CF0021FB2D /* MIDI */,
+				968D9C8F299978CF0021FB2D /* String */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		968D9C82299978CF0021FB2D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				968D9C83299978CF0021FB2D /* ViewControllerRepresentable.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		968D9C85299978CF0021FB2D /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				968D9C86299978CF0021FB2D /* Synth.aif */,
+				968D9C88299978CF0021FB2D /* SimplePlayEngine.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		968D9C8A299978CF0021FB2D /* MIDI */ = {
+			isa = PBXGroup;
+			children = (
+				968D9C8B299978CF0021FB2D /* MIDIManager.swift */,
+			);
+			path = MIDI;
+			sourceTree = "<group>";
+		};
+		968D9C8F299978CF0021FB2D /* String */ = {
+			isa = PBXGroup;
+			children = (
+				968D9C90299978CF0021FB2D /* StringHelpers.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		968D9C92299978CF0021FB2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				968D9C93299978CF0021FB2D /* AudioUnitHostModel.swift */,
+				968D9C95299978CF0021FB2D /* AudioUnitViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		968D9C99299978CF0021FB2D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				968D9C9A299978CF0021FB2D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		968D9CA6299978D10021FB2D /* BeatMachineTests */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CA7299978D10021FB2D /* BeatMachineTests.swift */,
+			);
+			path = BeatMachineTests;
+			sourceTree = "<group>";
+		};
+		968D9CB0299978D10021FB2D /* BeatMachineUITests */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CB1299978D10021FB2D /* BeatMachineUITests.swift */,
+				968D9CB3299978D10021FB2D /* BeatMachineUITestsLaunchTests.swift */,
+			);
+			path = BeatMachineUITests;
+			sourceTree = "<group>";
+		};
+		968D9CBD299978D10021FB2D /* BeatMachineExtension */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CBE299978D10021FB2D /* README.md */,
+				968D9CE8299978D10021FB2D /* Info.plist */,
+				968D9CC0299978D10021FB2D /* Common */,
+				968D9CD3299978D10021FB2D /* Parameters */,
+				968D9CD7299978D10021FB2D /* DSP */,
+				968D9CDA299978D10021FB2D /* UI */,
+			);
+			path = BeatMachineExtension;
+			sourceTree = "<group>";
+		};
+		968D9CC0299978D10021FB2D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CC1299978D10021FB2D /* BeatMachineExtension-Bridging-Header.h */,
+				968D9CC2299978D10021FB2D /* Parameters */,
+				968D9CC5299978D10021FB2D /* Utility */,
+				968D9CCA299978D10021FB2D /* Audio Unit */,
+				968D9CCE299978D10021FB2D /* DSP */,
+				968D9CDF299978D10021FB2D /* UI */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		968D9CC2299978D10021FB2D /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CC3299978D10021FB2D /* ParameterSpecBase.swift */,
+			);
+			path = Parameters;
+			sourceTree = "<group>";
+		};
+		968D9CC5299978D10021FB2D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CC6299978D10021FB2D /* CrossPlatform.swift */,
+				968D9CC8299978D10021FB2D /* String+Utils.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		968D9CCA299978D10021FB2D /* Audio Unit */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CCB299978D10021FB2D /* BeatMachineExtensionAudioUnit.h */,
+				968D9CCC299978D10021FB2D /* BeatMachineExtensionAudioUnit.mm */,
+			);
+			path = "Audio Unit";
+			sourceTree = "<group>";
+		};
+		968D9CCE299978D10021FB2D /* DSP */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CCF299978D10021FB2D /* BeatMachineExtensionAUProcessHelper.hpp */,
+				968D9CD1299978D10021FB2D /* BeatMachineExtensionBufferedAudioBus.hpp */,
+			);
+			path = DSP;
+			sourceTree = "<group>";
+		};
+		968D9CD3299978D10021FB2D /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CD4299978D10021FB2D /* BeatMachineExtensionParameterAddresses.h */,
+				968D9CD5299978D10021FB2D /* Parameters.swift */,
+			);
+			path = Parameters;
+			sourceTree = "<group>";
+		};
+		968D9CD7299978D10021FB2D /* DSP */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CD8299978D10021FB2D /* BeatMachineExtensionDSPKernel.hpp */,
+			);
+			path = DSP;
+			sourceTree = "<group>";
+		};
+		968D9CDA299978D10021FB2D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CDB299978D10021FB2D /* BeatMachineExtensionMainView.swift */,
+				968D9CDD299978D10021FB2D /* ParameterSlider.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		968D9CDF299978D10021FB2D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CE4299978D10021FB2D /* ObservableAUParameter.swift */,
+				968D9CE6299978D10021FB2D /* AudioUnitViewController.swift */,
+				968D9CE0299978D10021FB2D /* Base.lproj */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		968D9CE0299978D10021FB2D /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				968D9CE1299978D10021FB2D /* AudioUnitViewController.xib */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		968D9C7B299978CF0021FB2D /* BeatMachine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 968D9CEF299978D10021FB2D /* Build configuration list for PBXNativeTarget "BeatMachine" */;
+			buildPhases = (
+				968D9C78299978CF0021FB2D /* Sources */,
+				968D9C79299978CF0021FB2D /* Frameworks */,
+				968D9C7A299978CF0021FB2D /* Resources */,
+				968D9CEE299978D10021FB2D /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				968D9CBC299978D10021FB2D /* PBXTargetDependency */,
+			);
+			name = BeatMachine;
+			productName = BeatMachine;
+			productReference = 968D9C7C299978CF0021FB2D /* BeatMachine.app */;
+			productType = "com.apple.product-type.application";
+		};
+		968D9CA2299978D10021FB2D /* BeatMachineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 968D9CF2299978D10021FB2D /* Build configuration list for PBXNativeTarget "BeatMachineTests" */;
+			buildPhases = (
+				968D9C9F299978D10021FB2D /* Sources */,
+				968D9CA0299978D10021FB2D /* Frameworks */,
+				968D9CA1299978D10021FB2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				968D9CA5299978D10021FB2D /* PBXTargetDependency */,
+			);
+			name = BeatMachineTests;
+			productName = BeatMachineTests;
+			productReference = 968D9CA3299978D10021FB2D /* BeatMachineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		968D9CAC299978D10021FB2D /* BeatMachineUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 968D9CF5299978D10021FB2D /* Build configuration list for PBXNativeTarget "BeatMachineUITests" */;
+			buildPhases = (
+				968D9CA9299978D10021FB2D /* Sources */,
+				968D9CAA299978D10021FB2D /* Frameworks */,
+				968D9CAB299978D10021FB2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				968D9CAF299978D10021FB2D /* PBXTargetDependency */,
+			);
+			name = BeatMachineUITests;
+			productName = BeatMachineUITests;
+			productReference = 968D9CAD299978D10021FB2D /* BeatMachineUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		968D9CB8299978D10021FB2D /* BeatMachineExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 968D9CEB299978D10021FB2D /* Build configuration list for PBXNativeTarget "BeatMachineExtension" */;
+			buildPhases = (
+				968D9CB5299978D10021FB2D /* Sources */,
+				968D9CB6299978D10021FB2D /* Frameworks */,
+				968D9CB7299978D10021FB2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeatMachineExtension;
+			productName = BeatMachineExtension;
+			productReference = 968D9CB9299978D10021FB2D /* BeatMachineExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		968D9C74299978CF0021FB2D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					968D9C7B299978CF0021FB2D = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					968D9CA2299978D10021FB2D = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 968D9C7B299978CF0021FB2D;
+					};
+					968D9CAC299978D10021FB2D = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 968D9C7B299978CF0021FB2D;
+					};
+					968D9CB8299978D10021FB2D = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 968D9C77299978CF0021FB2D /* Build configuration list for PBXProject "BeatMachine" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 968D9C73299978CF0021FB2D;
+			productRefGroup = 968D9C7D299978CF0021FB2D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				968D9C7B299978CF0021FB2D /* BeatMachine */,
+				968D9CA2299978D10021FB2D /* BeatMachineTests */,
+				968D9CAC299978D10021FB2D /* BeatMachineUITests */,
+				968D9CB8299978D10021FB2D /* BeatMachineExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		968D9C7A299978CF0021FB2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				968D9C9B299978CF0021FB2D /* Preview Assets.xcassets in Resources */,
+				968D9C9D299978D10021FB2D /* Assets.xcassets in Resources */,
+				968D9C87299978CF0021FB2D /* Synth.aif in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968D9CA1299978D10021FB2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968D9CAB299978D10021FB2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968D9CB7299978D10021FB2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				968D9CD2299978D10021FB2D /* BeatMachineExtensionBufferedAudioBus.hpp in Resources */,
+				968D9CE3299978D10021FB2D /* AudioUnitViewController.xib in Resources */,
+				968D9CD0299978D10021FB2D /* BeatMachineExtensionAUProcessHelper.hpp in Resources */,
+				968D9CBF299978D10021FB2D /* README.md in Resources */,
+				968D9CD9299978D10021FB2D /* BeatMachineExtensionDSPKernel.hpp in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		968D9C78299978CF0021FB2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				968D9C94299978CF0021FB2D /* AudioUnitHostModel.swift in Sources */,
+				968D9C96299978CF0021FB2D /* AudioUnitViewModel.swift in Sources */,
+				968D9C80299978CF0021FB2D /* ContentView.swift in Sources */,
+				968D9C84299978CF0021FB2D /* ViewControllerRepresentable.swift in Sources */,
+				968D9C91299978CF0021FB2D /* StringHelpers.swift in Sources */,
+				968D9C8C299978CF0021FB2D /* MIDIManager.swift in Sources */,
+				968D9C8E299978CF0021FB2D /* TypeAliases.swift in Sources */,
+				968D9C89299978CF0021FB2D /* SimplePlayEngine.swift in Sources */,
+				968D9C98299978CF0021FB2D /* BeatMachineApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968D9C9F299978D10021FB2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				968D9CA8299978D10021FB2D /* BeatMachineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968D9CA9299978D10021FB2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				968D9CB4299978D10021FB2D /* BeatMachineUITestsLaunchTests.swift in Sources */,
+				968D9CB2299978D10021FB2D /* BeatMachineUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968D9CB5299978D10021FB2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				968D9CD6299978D10021FB2D /* Parameters.swift in Sources */,
+				968D9CCD299978D10021FB2D /* BeatMachineExtensionAudioUnit.mm in Sources */,
+				968D9CE5299978D10021FB2D /* ObservableAUParameter.swift in Sources */,
+				968D9CC4299978D10021FB2D /* ParameterSpecBase.swift in Sources */,
+				968D9CC7299978D10021FB2D /* CrossPlatform.swift in Sources */,
+				968D9CE7299978D10021FB2D /* AudioUnitViewController.swift in Sources */,
+				968D9CDE299978D10021FB2D /* ParameterSlider.swift in Sources */,
+				968D9CC9299978D10021FB2D /* String+Utils.swift in Sources */,
+				968D9CDC299978D10021FB2D /* BeatMachineExtensionMainView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		968D9CA5299978D10021FB2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 968D9C7B299978CF0021FB2D /* BeatMachine */;
+			targetProxy = 968D9CA4299978D10021FB2D /* PBXContainerItemProxy */;
+		};
+		968D9CAF299978D10021FB2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 968D9C7B299978CF0021FB2D /* BeatMachine */;
+			targetProxy = 968D9CAE299978D10021FB2D /* PBXContainerItemProxy */;
+		};
+		968D9CBC299978D10021FB2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 968D9CB8299978D10021FB2D /* BeatMachineExtension */;
+			targetProxy = 968D9CBB299978D10021FB2D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		968D9CE1299978D10021FB2D /* AudioUnitViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				968D9CE2299978D10021FB2D /* Base */,
+			);
+			name = AudioUnitViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		968D9CE9299978D10021FB2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		968D9CEA299978D10021FB2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		968D9CEC299978D10021FB2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RS4G7N7VG4;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeatMachineExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatMachineExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "\"~/System/Library/Components/\"";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BeatMachine.BeatMachine.BeatMachineExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BeatMachineExtension/Common/BeatMachineExtension-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		968D9CED299978D10021FB2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RS4G7N7VG4;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeatMachineExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatMachineExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "\"~/System/Library/Components/\"";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BeatMachine.BeatMachine.BeatMachineExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BeatMachineExtension/Common/BeatMachineExtension-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		968D9CF0299978D10021FB2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BeatMachine/BeatMachine.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BeatMachine/Preview Content\"";
+				DEVELOPMENT_TEAM = RS4G7N7VG4;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatMachine;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					AudioToolbox,
+					"-framework",
+					AVFoundation,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BeatMachine.BeatMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		968D9CF1299978D10021FB2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BeatMachine/BeatMachine.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BeatMachine/Preview Content\"";
+				DEVELOPMENT_TEAM = RS4G7N7VG4;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatMachine;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					AudioToolbox,
+					"-framework",
+					AVFoundation,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BeatMachine.BeatMachine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		968D9CF3299978D10021FB2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RS4G7N7VG4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BeatMachine.BeatMachineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeatMachine.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BeatMachine";
+			};
+			name = Debug;
+		};
+		968D9CF4299978D10021FB2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RS4G7N7VG4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BeatMachine.BeatMachineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeatMachine.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BeatMachine";
+			};
+			name = Release;
+		};
+		968D9CF6299978D10021FB2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RS4G7N7VG4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BeatMachine.BeatMachineUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = BeatMachine;
+			};
+			name = Debug;
+		};
+		968D9CF7299978D10021FB2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RS4G7N7VG4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BeatMachine.BeatMachineUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = BeatMachine;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		968D9C77299978CF0021FB2D /* Build configuration list for PBXProject "BeatMachine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				968D9CE9299978D10021FB2D /* Debug */,
+				968D9CEA299978D10021FB2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		968D9CEB299978D10021FB2D /* Build configuration list for PBXNativeTarget "BeatMachineExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				968D9CEC299978D10021FB2D /* Debug */,
+				968D9CED299978D10021FB2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		968D9CEF299978D10021FB2D /* Build configuration list for PBXNativeTarget "BeatMachine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				968D9CF0299978D10021FB2D /* Debug */,
+				968D9CF1299978D10021FB2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		968D9CF2299978D10021FB2D /* Build configuration list for PBXNativeTarget "BeatMachineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				968D9CF3299978D10021FB2D /* Debug */,
+				968D9CF4299978D10021FB2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		968D9CF5299978D10021FB2D /* Build configuration list for PBXNativeTarget "BeatMachineUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				968D9CF6299978D10021FB2D /* Debug */,
+				968D9CF7299978D10021FB2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 968D9C74299978CF0021FB2D /* Project object */;
+}

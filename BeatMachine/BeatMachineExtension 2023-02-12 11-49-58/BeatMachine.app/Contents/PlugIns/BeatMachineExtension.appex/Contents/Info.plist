@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BuildMachineOSBuild</key>
+	<string>21G419</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>BeatMachineExtension</string>
+	<key>CFBundleExecutable</key>
+	<string>BeatMachineExtension</string>
+	<key>CFBundleIdentifier</key>
+	<string>BeatMachine.BeatMachine.BeatMachineExtension</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>BeatMachineExtension</string>
+	<key>CFBundlePackageType</key>
+	<string>XPC!</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSupportedPlatforms</key>
+	<array>
+		<string>MacOSX</string>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>DTCompiler</key>
+	<string>com.apple.compilers.llvm.clang.1_0</string>
+	<key>DTPlatformBuild</key>
+	<string>14C18</string>
+	<key>DTPlatformName</key>
+	<string>macosx</string>
+	<key>DTPlatformVersion</key>
+	<string>13.1</string>
+	<key>DTSDKBuild</key>
+	<string>22C55</string>
+	<key>DTSDKName</key>
+	<string>macosx13.1</string>
+	<key>DTXcode</key>
+	<string>1420</string>
+	<key>DTXcodeBuild</key>
+	<string>14C18</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>13.0</string>
+	<key>NSExtension</key>
+	<dict>
+		<key>NSExtensionAttributes</key>
+		<dict>
+			<key>AudioComponents</key>
+			<array>
+				<dict>
+					<key>description</key>
+					<string>BeatMachineExtension</string>
+					<key>factoryFunction</key>
+					<string>BeatMachineExtension.AudioUnitViewController</string>
+					<key>manufacturer</key>
+					<string>BEMA</string>
+					<key>name</key>
+					<string>Austin Kang: BeatMachineExtension</string>
+					<key>sandboxSafe</key>
+					<true/>
+					<key>subtype</key>
+					<string>BEMA</string>
+					<key>tags</key>
+					<array>
+						<string>Music Effect</string>
+					</array>
+					<key>type</key>
+					<string>aumf</string>
+					<key>version</key>
+					<integer>67072</integer>
+				</dict>
+			</array>
+		</dict>
+		<key>NSExtensionPointIdentifier</key>
+		<string>com.apple.AudioUnit-UI</string>
+		<key>NSExtensionPrincipalClass</key>
+		<string>BeatMachineExtension.AudioUnitViewController</string>
+	</dict>
+</dict>
+</plist>
