@@ -9,11 +9,13 @@
 
 #import <AudioToolbox/AudioToolbox.h>
 #import <CoreMIDI/CoreMIDI.h>
+#import <Accelerate/Accelerate.h>
 #import <algorithm>
 #import <vector>
 #import <span>
 #include <iostream>
 #include <unordered_map>
+#include <set>
 
 #import "BeatMachineExtension-Swift.h"
 #import "BeatMachineExtensionParameterAddresses.h"
@@ -25,11 +27,10 @@
 class BeatMachineExtensionDSPKernel {
 public:
     std::unordered_map<UInt32, AudioBufferList*> soundBuffers;
-    std::unordered_map<UInt32, std::span<float *>> soundBuffers2;
     bool isRecording = false;
     UInt64 currentNoteTime = 0;
     int RECORD_NOTE = 0x0;
-    int currentNote = -1;
+    std::set<int> currentNotes;
     int sampleIndexes [128];
     int playIndexes [128];
     
@@ -132,29 +133,31 @@ public:
                 
                 if (this->isRecording) {
                     outputBuffers[channel][frameIndex] = inputBuffers[channel][frameIndex] * 1.0 * mGain;
-                    if (this->currentNote != -1) {
-                        recordInputToSoundBuffer(inputBuffers, channel, frameIndex);
+                    if (this->currentNotes.size() != 0) {
+                        for (auto currentNote = currentNotes.begin(); currentNote != currentNotes.end(); ++currentNote) {
+                            recordInputToSoundBuffer(inputBuffers, channel, frameIndex, *currentNote);
+                        }
                     }
                 } else {
-                    if (this->currentNote != -1) {
-                        outputBuffers[channel][frameIndex] = (*((float*)this->soundBuffers[currentNote]->mBuffers[0].mData + this->playIndexes[this->currentNote])) * 1.0 * mGain;
-                        this->playIndexes[this->currentNote] += 1;
-                    } else {
-                        outputBuffers[channel][frameIndex] = 0;
+                    // reset outputBuffers
+                    outputBuffers[channel][frameIndex] = 0;
+                    
+                    if (this->currentNotes.size() != 0) {
+                        for (auto currentNote = currentNotes.begin(); currentNote != currentNotes.end(); ++currentNote) {
+                            outputBuffers[channel][frameIndex] += (*((float*)this->soundBuffers[*currentNote]->mBuffers[0].mData + this->playIndexes[*currentNote])) * 1.0 * mGain;
+                            this->playIndexes[*currentNote] += 1;
+                        }
                     }
                 }
             }
         }
     }
     
-    void recordInputToSoundBuffer(std::span<float const*> inputBuffers, UInt32 channel, UInt32 frameIndex) {
-        //for (UInt32 channel = 0; channel < inBufferList->mNumberBuffers; ++channel) {
-            float* recordBufferChannel = (float*)this->soundBuffers[this->currentNote]->mBuffers[0].mData + this->sampleIndexes[this->currentNote];
+    void recordInputToSoundBuffer(std::span<float const*> inputBuffers, UInt32 channel, UInt32 frameIndex, int currentNote) {
+        float* recordBufferChannel = (float*)this->soundBuffers[currentNote]->mBuffers[0].mData + this->sampleIndexes[currentNote];
 
-            std::memcpy(recordBufferChannel, &inputBuffers[channel][frameIndex], sizeof(float));
-        //}
-        
-        this->sampleIndexes[this->currentNote] += 1;
+        std::memcpy(recordBufferChannel, &inputBuffers[channel][frameIndex], sizeof(float));
+        this->sampleIndexes[currentNote] += 1;
     }
     
     void handleOneEvent(AUEventSampleTime now, AURenderEvent const *event) {
@@ -187,17 +190,17 @@ public:
                 if (noteNumber == thisObject->RECORD_NOTE) {
                     thisObject->isRecording = true;
                 } else {
-                    thisObject->currentNote = noteNumber;
+                    thisObject->currentNotes.insert(noteNumber);
                 }
             } else if (message.channelVoice2.status == kMIDICVStatusNoteOff) {
                 UInt32 noteNumber = message.channelVoice2.note.number;
                 if (noteNumber == thisObject->RECORD_NOTE) {
                     thisObject->isRecording = false;
                 } else {
-                    thisObject->sampleIndexes[thisObject->currentNote] = 0;
-                    thisObject->playIndexes[thisObject->currentNote] = 0;
+                    thisObject->currentNotes.erase(noteNumber);
+                    thisObject->sampleIndexes[noteNumber] = 0;
+                    thisObject->playIndexes[noteNumber] = 0;
                 }
-                thisObject->currentNote = -1;
             }
         };
         

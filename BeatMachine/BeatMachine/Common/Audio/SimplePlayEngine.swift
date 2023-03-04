@@ -81,8 +81,8 @@ public class SimplePlayEngine {
     public init() {
         engine.attach(player)
         
-        guard let fileURL = Bundle.main.url(forResource: "Synth", withExtension: "aif") else {
-            fatalError("\"Synth.aif\" file not found.")
+        guard let fileURL = Bundle.main.url(forResource: "West", withExtension: "aif") else {
+            fatalError("\"West.aif\" file not found.")
         }
         setPlayerFile(fileURL)
         

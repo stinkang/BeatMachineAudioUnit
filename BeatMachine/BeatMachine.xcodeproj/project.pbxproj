@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		963BD8E829B4039500CA5B88 /* West.aif in Resources */ = {isa = PBXBuildFile; fileRef = 963BD8E729B4039500CA5B88 /* West.aif */; };
 		968D9C80299978CF0021FB2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9C7F299978CF0021FB2D /* ContentView.swift */; };
 		968D9C84299978CF0021FB2D /* ViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9C83299978CF0021FB2D /* ViewControllerRepresentable.swift */; };
 		968D9C87299978CF0021FB2D /* Synth.aif in Resources */ = {isa = PBXBuildFile; fileRef = 968D9C86299978CF0021FB2D /* Synth.aif */; };
@@ -78,6 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		963BD8E729B4039500CA5B88 /* West.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = West.aif; path = ../../../../../../Downloads/West.aif; sourceTree = "<group>"; };
 		968D9C7C299978CF0021FB2D /* BeatMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968D9C7F299978CF0021FB2D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		968D9C83299978CF0021FB2D /* ViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRepresentable.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		968D9C85299978CF0021FB2D /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				963BD8E729B4039500CA5B88 /* West.aif */,
 				968D9C86299978CF0021FB2D /* Synth.aif */,
 				968D9C88299978CF0021FB2D /* SimplePlayEngine.swift */,
 			);
@@ -498,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				968D9C9B299978CF0021FB2D /* Preview Assets.xcassets in Resources */,
+				963BD8E829B4039500CA5B88 /* West.aif in Resources */,
 				968D9C9D299978D10021FB2D /* Assets.xcassets in Resources */,
 				968D9C87299978CF0021FB2D /* Synth.aif in Resources */,
 			);
