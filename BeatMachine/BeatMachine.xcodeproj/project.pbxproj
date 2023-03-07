@@ -38,6 +38,7 @@
 		968D9CE3299978D10021FB2D /* AudioUnitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968D9CE1299978D10021FB2D /* AudioUnitViewController.xib */; };
 		968D9CE5299978D10021FB2D /* ObservableAUParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CE4299978D10021FB2D /* ObservableAUParameter.swift */; };
 		968D9CE7299978D10021FB2D /* AudioUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CE6299978D10021FB2D /* AudioUnitViewController.swift */; };
+		9691785F29B68931003E7D1C /* IsRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691785E29B68931003E7D1C /* IsRecordingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		968D9CE4299978D10021FB2D /* ObservableAUParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableAUParameter.swift; sourceTree = "<group>"; };
 		968D9CE6299978D10021FB2D /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
 		968D9CE8299978D10021FB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9691785E29B68931003E7D1C /* IsRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsRecordingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +353,7 @@
 			children = (
 				968D9CDB299978D10021FB2D /* BeatMachineExtensionMainView.swift */,
 				968D9CDD299978D10021FB2D /* ParameterSlider.swift */,
+				9691785E29B68931003E7D1C /* IsRecordingView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 			files = (
 				968D9CD6299978D10021FB2D /* Parameters.swift in Sources */,
 				968D9CCD299978D10021FB2D /* BeatMachineExtensionAudioUnit.mm in Sources */,
+				9691785F29B68931003E7D1C /* IsRecordingView.swift in Sources */,
 				968D9CE5299978D10021FB2D /* ObservableAUParameter.swift in Sources */,
 				968D9CC4299978D10021FB2D /* ParameterSpecBase.swift in Sources */,
 				968D9CC7299978D10021FB2D /* CrossPlatform.swift in Sources */,

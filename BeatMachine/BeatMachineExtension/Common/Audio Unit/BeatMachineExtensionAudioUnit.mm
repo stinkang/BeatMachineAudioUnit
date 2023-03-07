@@ -71,6 +71,7 @@
     // Send the Parameter default values to the Kernel before setting up the parameter callbacks, so that the defaults set in the Kernel.hpp don't propagate back to the AUParameters via GetParameter
     for (AUParameter *param in _parameterTree.allParameters) {
         _kernel.setParameter(param.address, param.value);
+        _kernel.addParameterRef(param);
     }
     
     [self setupParameterCallbacks];

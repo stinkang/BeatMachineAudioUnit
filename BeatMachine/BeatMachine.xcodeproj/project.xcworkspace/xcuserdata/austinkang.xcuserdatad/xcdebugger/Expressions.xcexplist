@@ -18,5 +18,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "__56-[BeatMachineExtensionAudioUnit setupParameterCallbacks]_block_invoke:BeatMachineExtensionAudioUnit.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "para,">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

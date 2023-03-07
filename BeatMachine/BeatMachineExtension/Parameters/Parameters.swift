@@ -18,6 +18,14 @@ let BeatMachineExtensionParameterSpecs = ParameterTreeSpec {
             valueRange: 0.0...1.0,
             defaultValue: 0.25
         )
+        ParameterSpec(
+            address: .isRecording,
+            identifier: "isRecording",
+            name: "Is Recording",
+            units: .generic,
+            valueRange: 0.0...1.0,
+            defaultValue: 0.0
+        )
     }
 }
 

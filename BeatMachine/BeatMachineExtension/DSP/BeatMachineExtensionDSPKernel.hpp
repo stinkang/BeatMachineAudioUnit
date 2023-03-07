@@ -27,12 +27,13 @@
 class BeatMachineExtensionDSPKernel {
 public:
     std::unordered_map<UInt32, AudioBufferList*> soundBuffers;
-    bool isRecording = false;
+    float isRecording = 0.0;
     UInt64 currentNoteTime = 0;
     int RECORD_NOTE = 0x0;
     std::set<int> currentNotes;
     int sampleIndexes [128];
     int playIndexes [128];
+    std::unordered_map<AUParameterAddress, AUParameter*> paramRefs;
     
     void initialize(int inputChannelCount, int outputChannelCount, double inSampleRate) {
         mSampleRate = inSampleRate;
@@ -63,10 +64,14 @@ public:
     
     // MARK: - Parameter Getter / Setter
     // Add a case for each parameter in BeatMachineExtensionParameterAddresses.h
+    // so this is used when we set the parameter from the UI, such as with a ParameterSlider. We update the kernel's parameter.
     void setParameter(AUParameterAddress address, AUValue value) {
         switch (address) {
             case BeatMachineExtensionParameterAddress::gain:
                 mGain = value;
+                break;
+            case BeatMachineExtensionParameterAddress::isRecording:
+                isRecording = value;
                 break;
         }
     }
@@ -77,8 +82,27 @@ public:
         switch (address) {
             case BeatMachineExtensionParameterAddress::gain:
                 return (AUValue)mGain;
-                
+                break;
+            case BeatMachineExtensionParameterAddress::isRecording:
+                return (AUValue)isRecording;
+                break;
             default: return 0.f;
+        }
+    }
+    
+    void addParameterRef(AUParameter *param) {
+        paramRefs[param.address] = param;
+    }
+    
+    
+    // we use this to set the parameter from WITHIN the kernel, so that the AUParameterTree's
+    // implementorValueObserver picks up on the change. We're changing the C++ object that it's listening for.
+    // note how paramRefs is an std::unordered_map<AUParameterAddress, AUParameter*>
+    void setParameterRef(AUParameterAddress address, AUValue value) {
+        if (paramRefs.find(address) == paramRefs.end()) {
+          // error
+        } else {
+            paramRefs[address].value = value;
         }
     }
     
@@ -131,7 +155,7 @@ public:
                 
                 // Do your sample by sample dsp here...
                 
-                if (this->isRecording) {
+                if (this->isRecording == 1.0) {
                     outputBuffers[channel][frameIndex] = inputBuffers[channel][frameIndex] * 1.0 * mGain;
                     if (this->currentNotes.size() != 0) {
                         for (auto currentNote = currentNotes.begin(); currentNote != currentNotes.end(); ++currentNote) {
@@ -188,14 +212,16 @@ public:
             if (message.channelVoice2.status == kMIDICVStatusNoteOn) {
                 UInt32 noteNumber = message.channelVoice2.note.number;
                 if (noteNumber == thisObject->RECORD_NOTE) {
-                    thisObject->isRecording = true;
+                    //thisObject->setParameter(BeatMachineExtensionParameterAddress::isRecording, 1.0);
+                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::isRecording, 1.0);
                 } else {
                     thisObject->currentNotes.insert(noteNumber);
                 }
             } else if (message.channelVoice2.status == kMIDICVStatusNoteOff) {
                 UInt32 noteNumber = message.channelVoice2.note.number;
                 if (noteNumber == thisObject->RECORD_NOTE) {
-                    thisObject->isRecording = false;
+                    //thisObject->setParameter(BeatMachineExtensionParameterAddress::isRecording, 0.0);
+                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::isRecording, 0.0);
                 } else {
                     thisObject->currentNotes.erase(noteNumber);
                     thisObject->sampleIndexes[noteNumber] = 0;
@@ -235,4 +261,7 @@ public:
     
     bool mBypassed = false;
     AUAudioFrameCount mMaxFramesToRender = 1024;
+    
+//private:
+//    AUParameter *isRecordingParam;
 };

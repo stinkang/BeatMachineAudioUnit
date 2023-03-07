@@ -9,8 +9,16 @@ import SwiftUI
 
 struct BeatMachineExtensionMainView: View {
     var parameterTree: ObservableAUParameterGroup
+    
+    init(parameterTree: ObservableAUParameterGroup) {
+        self.parameterTree = parameterTree
+        print(parameterTree)
+    }
 
     var body: some View {
-        ParameterSlider(param: parameterTree.global.gain)
+        VStack(spacing: 10) {
+            ParameterSlider(param: parameterTree.global.gain)
+            IsRecordingView(param: parameterTree.global.isRecording)
+        }
     }
 }
