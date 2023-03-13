@@ -3,10 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "BeatMachineExtensionDSPKernel::recordInputToSoundBuffer(AudioBufferList const*, unsigned int):BeatMachineExtensionDSPKernel.hpp">
+         contextName = "BeatMachineExtensionDSPKernel::handleMIDIEventList(long long, AUMIDIEventList const*)::&apos;lambda&apos;(void*, unsigned long long, MIDIUniversalMessage)::operator()(void*, unsigned long long, MIDIUniversalMessage) const:BeatMachineExtensionDSPKernel.hpp">
          <PersistentStrings>
             <PersistentString
-               value = "(float*)inBufferList-&gt;mBuffers[0].mData;">
+               value = "thisObject-&gt;paramRefs">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -19,10 +19,37 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "__56-[BeatMachineExtensionAudioUnit setupParameterCallbacks]_block_invoke:BeatMachineExtensionAudioUnit.mm">
+         contextName = "BeatMachineExtensionDSPKernel::recordInputToSoundBuffer(AudioBufferList const*, unsigned int):BeatMachineExtensionDSPKernel.hpp">
          <PersistentStrings>
             <PersistentString
-               value = "para,">
+               value = "(float*)inBufferList-&gt;mBuffers[0].mData;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SimplePlayEngine.init():SimplePlayEngine.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "engine.mainMixerNode.outputFormat(forBus: 0).settings">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MIDIView.param.getter:MIDIView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "param.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MIDIView.body.getter:MIDIView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "param">
+            </PersistentString>
+            <PersistentString
+               value = "param.value">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

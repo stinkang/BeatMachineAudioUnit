@@ -19,6 +19,10 @@ class AudioUnitHostModel: ObservableObject {
     var isPlaying: Bool {
         playEngine.isPlaying
     }
+    
+    var isRecording: Bool {
+        playEngine.isRecording
+    }
 
     /// Audio Component Description
     let type: String
@@ -35,7 +39,7 @@ class AudioUnitHostModel: ObservableObject {
         self.type = type
         self.subType = subType
         self.manufacturer = manufacturer
-        let wantsAudio = type.fourCharCode == kAudioUnitType_MusicEffect || type.fourCharCode == kAudioUnitType_Effect
+        let wantsAudio = type.fourCharCode == kAudioUnitType_MusicEffect || type.fourCharCode == kAudioUnitType_Effect || type.fourCharCode == kAudioUnitType_MusicDevice
         self.wantsAudio = wantsAudio
 
         let wantsMIDI = type.fourCharCode == kAudioUnitType_MIDIProcessor ||
@@ -84,5 +88,9 @@ class AudioUnitHostModel: ObservableObject {
 
     func stopPlaying() {
         playEngine.stopPlaying()
+    }
+    
+    func handleRecording() {
+        playEngine.handleRecording()
     }
 }

@@ -28,6 +28,7 @@ class BeatMachineExtensionDSPKernel {
 public:
     std::unordered_map<UInt32, AudioBufferList*> soundBuffers;
     float isRecording = 0.0;
+    int MIDINote = 0;
     UInt64 currentNoteTime = 0;
     int RECORD_NOTE = 0x0;
     std::set<int> currentNotes;
@@ -73,6 +74,9 @@ public:
             case BeatMachineExtensionParameterAddress::isRecording:
                 isRecording = value;
                 break;
+            case BeatMachineExtensionParameterAddress::MIDINote:
+                MIDINote = value;
+                break;
         }
     }
     
@@ -85,6 +89,9 @@ public:
                 break;
             case BeatMachineExtensionParameterAddress::isRecording:
                 return (AUValue)isRecording;
+                break;
+            case BeatMachineExtensionParameterAddress::MIDINote:
+                return (AUValue)MIDINote;
                 break;
             default: return 0.f;
         }
@@ -216,6 +223,7 @@ public:
                     thisObject->setParameterRef(BeatMachineExtensionParameterAddress::isRecording, 1.0);
                 } else {
                     thisObject->currentNotes.insert(noteNumber);
+                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::MIDINote, noteNumber);
                 }
             } else if (message.channelVoice2.status == kMIDICVStatusNoteOff) {
                 UInt32 noteNumber = message.channelVoice2.note.number;
