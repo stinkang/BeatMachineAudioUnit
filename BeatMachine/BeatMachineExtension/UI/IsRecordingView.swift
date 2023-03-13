@@ -22,11 +22,14 @@ struct IsRecordingView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "circle.fill")
-                .foregroundColor(param.value == 1.0 ? .red : .gray)
-                .onTapGesture {
-                    param.value = abs(param.value - 1.0)
-                }
+            HStack {
+                Text("Mapping Mode")
+                Image(systemName: "circle.fill")
+                    .foregroundColor(param.value == 1.0 ? .red : .gray)
+                    .onTapGesture {
+                        param.value = abs(param.value - 1.0)
+                    }
+            }
         }
         .padding()
     }

@@ -93,4 +93,11 @@ class AudioUnitHostModel: ObservableObject {
     func handleRecording() {
         playEngine.handleRecording()
     }
+    
+    func setNewFile(url: URL?) {
+        if (url != nil) {
+            playEngine.setPlayerFile(url!)
+            playEngine.reset()
+        }
+    }
 }

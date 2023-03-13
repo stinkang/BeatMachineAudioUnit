@@ -113,7 +113,7 @@ public class SimplePlayEngine {
         //recordStateChangeQueue.sync {
             if !self.isRecording {
                 do {
-                    outputFile = try AVAudioFile(forWriting: URLFor(filename: "beat_machine1_output.aif")!, settings: engine.mainMixerNode.outputFormat(forBus: 0).settings, commonFormat: .pcmFormatFloat32, interleaved: false)
+                    outputFile = try AVAudioFile(forWriting: URLFor(filename: "beat_machine_output.aif")!, settings: engine.mainMixerNode.outputFormat(forBus: 0).settings, commonFormat: .pcmFormatFloat32, interleaved: false)
                 } catch {
                     print("error creating output file")
                 }
@@ -184,7 +184,7 @@ public class SimplePlayEngine {
         }
     }
     
-    private func setPlayerFile(_ fileURL: URL) {
+    func setPlayerFile(_ fileURL: URL) {
         do {
             let file = try AVAudioFile(forReading: fileURL)
             self.file = file

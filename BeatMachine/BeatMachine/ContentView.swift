@@ -10,6 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var hostModel: AudioUnitHostModel
+    @State var filename = "Filename"
+    @State var fileURL : URL?
+    @State var showFileChooser = false
     var margin = 10.0
     var doubleMargin: Double {
         margin * 2.0
@@ -35,19 +38,37 @@ struct ContentView: View {
             .padding(doubleMargin)
             
             if hostModel.viewModel.showAudioControls {
-                Text("Audio Playback")
-                Button {
-                    hostModel.isPlaying ? hostModel.stopPlaying() : hostModel.startPlaying()
-                    
-                } label: {
-                    Text(hostModel.isPlaying ? "Stop" : "Play")
-                }
-                
-                Text("Record to File")
-                Button {
-                    hostModel.handleRecording()
-                } label: {
-                    Text(hostModel.isRecording ? "Stop" : "Record")
+                HStack {
+                    Spacer()
+                    HStack {
+                      Text(filename)
+                      Button("Select File")
+                      {
+                        let panel = NSOpenPanel()
+                        panel.allowsMultipleSelection = false
+                        panel.canChooseDirectories = false
+                        if panel.runModal() == .OK {
+                            self.filename = panel.url?.lastPathComponent ?? "<none>"
+                            self.fileURL = panel.url
+                            hostModel.setNewFile(url: panel.url)
+                        }
+                      }
+                    }
+                    Spacer()
+                    Text("Audio Playback")
+                    Button {
+                        hostModel.isPlaying ? hostModel.stopPlaying() : hostModel.startPlaying()
+                    } label: {
+                        Text(hostModel.isPlaying ? "Stop" : "Play")
+                    }
+                    Spacer()
+                    Text("Record to File")
+                    Button {
+                        hostModel.handleRecording()
+                    } label: {
+                        Text(hostModel.isRecording ? "Stop" : "Record")
+                    }
+                    Spacer()
                 }
             }
             if hostModel.viewModel.showMIDIContols {
