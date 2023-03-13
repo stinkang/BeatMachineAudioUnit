@@ -29,6 +29,7 @@ public:
     std::unordered_map<UInt32, AudioBufferList*> soundBuffers;
     float isRecording = 0.0;
     int MIDINote = 0;
+    int MIDINoteOff = 0;
     UInt64 currentNoteTime = 0;
     int RECORD_NOTE = 0x0;
     std::set<int> currentNotes;
@@ -47,7 +48,7 @@ public:
             buffer.mDataByteSize = 1024 * sizeof(float);
             buffer.mData = new float[441000];
 
-            this->soundBuffers.insert(std::make_pair(i, bufferList));
+            soundBuffers.insert(std::make_pair(i, bufferList));
         }
     }
     
@@ -76,6 +77,16 @@ public:
                 break;
             case BeatMachineExtensionParameterAddress::MIDINote:
                 MIDINote = value;
+                // handle incoming MIDI notes the same way we do in handleMIDIEventList().
+                // These notes comes from adjusting the MIDINote parameter through Logic's controls UI.
+                // They can also come when we route MIDI manually to the Audio track that
+                // is running BeatMachine as Audio FX (using the Environment window -- see README)
+                currentNotes.insert(MIDINote);
+                break;
+            case BeatMachineExtensionParameterAddress::MIDINoteOff:
+                currentNotes.erase(MIDINote);
+                sampleIndexes[MIDINote] = 0;
+                playIndexes[MIDINote] = 0;
                 break;
         }
     }
@@ -91,6 +102,9 @@ public:
                 return (AUValue)isRecording;
                 break;
             case BeatMachineExtensionParameterAddress::MIDINote:
+                return (AUValue)MIDINote;
+                break;
+            case BeatMachineExtensionParameterAddress::MIDINoteOff:
                 return (AUValue)MIDINote;
                 break;
             default: return 0.f;
@@ -162,9 +176,9 @@ public:
                 
                 // Do your sample by sample dsp here...
                 
-                if (this->isRecording == 1.0) {
+                if (isRecording == 1.0) {
                     outputBuffers[channel][frameIndex] = inputBuffers[channel][frameIndex] * 1.0 * mGain;
-                    if (this->currentNotes.size() != 0) {
+                    if (currentNotes.size() != 0) {
                         for (auto currentNote = currentNotes.begin(); currentNote != currentNotes.end(); ++currentNote) {
                             recordInputToSoundBuffer(inputBuffers, channel, frameIndex, *currentNote);
                         }
@@ -173,10 +187,10 @@ public:
                     // reset outputBuffers
                     outputBuffers[channel][frameIndex] = 0;
                     
-                    if (this->currentNotes.size() != 0) {
+                    if (currentNotes.size() != 0) {
                         for (auto currentNote = currentNotes.begin(); currentNote != currentNotes.end(); ++currentNote) {
-                            outputBuffers[channel][frameIndex] += (*((float*)this->soundBuffers[*currentNote]->mBuffers[0].mData + this->playIndexes[*currentNote])) * 1.0 * mGain;
-                            this->playIndexes[*currentNote] += 1;
+                            outputBuffers[channel][frameIndex] += (*((float*)soundBuffers[*currentNote]->mBuffers[0].mData + playIndexes[*currentNote])) * 1.0 * mGain;
+                            playIndexes[*currentNote] += 1;
                         }
                     }
                 }
@@ -185,10 +199,10 @@ public:
     }
     
     void recordInputToSoundBuffer(std::span<float const*> inputBuffers, UInt32 channel, UInt32 frameIndex, int currentNote) {
-        float* recordBufferChannel = (float*)this->soundBuffers[currentNote]->mBuffers[0].mData + this->sampleIndexes[currentNote];
+        float* recordBufferChannel = (float*)soundBuffers[currentNote]->mBuffers[0].mData + sampleIndexes[currentNote];
 
         std::memcpy(recordBufferChannel, &inputBuffers[channel][frameIndex], sizeof(float));
-        this->sampleIndexes[currentNote] += 1;
+        sampleIndexes[currentNote] += 1;
     }
     
     void handleOneEvent(AUEventSampleTime now, AURenderEvent const *event) {

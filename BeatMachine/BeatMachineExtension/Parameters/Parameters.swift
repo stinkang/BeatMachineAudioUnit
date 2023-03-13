@@ -34,6 +34,14 @@ let BeatMachineExtensionParameterSpecs = ParameterTreeSpec {
             valueRange: 0...127,
             defaultValue: 0
         )
+        ParameterSpec(
+            address: .MIDINoteOff,
+            identifier: "MIDINoteeOff",
+            name: "MIDI Note Off",
+            units: .generic,
+            valueRange: 0...127,
+            defaultValue: 0
+        )
     }
 }
 
