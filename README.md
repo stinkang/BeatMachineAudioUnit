@@ -5,7 +5,7 @@ Side note: I don't think Logic supports aumf Audio Units yet: https://developer.
 
 but BeatMachineExtension runs correctly with the host app from this project.
 
-BeatMachine is an intuitive tool used for chopping up audio samples. The idea is that you hit a MIDI pad to record a certain section of audio, and then every time you hit that MIDI pad, you can play that section of audio back.
+BeatMachine is an intuitive tool used for chopping up audio samples. The idea is that you press and hold a MIDI pad to map a section of audio to that MIDI pad for future playback.
 
 <img width="908" alt="Screenshot 2023-03-13 at 1 19 13 PM" src="https://user-images.githubusercontent.com/28878318/224823043-7ea450c7-1273-442d-b964-7ac35aa7ac08.png">
 
