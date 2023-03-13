@@ -42,6 +42,13 @@ struct ContentView: View {
                 } label: {
                     Text(hostModel.isPlaying ? "Stop" : "Play")
                 }
+                
+                Text("Record to File")
+                Button {
+                    hostModel.handleRecording()
+                } label: {
+                    Text(hostModel.isRecording ? "Stop" : "Record")
+                }
             }
             if hostModel.viewModel.showMIDIContols {
                 Text("MIDI Input: Enabled")

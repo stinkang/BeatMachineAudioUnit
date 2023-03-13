@@ -58,6 +58,9 @@ public class SimplePlayEngine {
     // Synchronizes starting/stopping the engine and scheduling file segments.
     private let stateChangeQueue = DispatchQueue(label: "com.example.apple-samplecode.StateChangeQueue")
     
+    // Synchronizes starting/stopping the engine and scheduling file segments.
+    private let recordStateChangeQueue = DispatchQueue(label: "com.example.apple-samplecode.StateChangeQueue")
+    
     // Playback engine.
     private let engine = AVAudioEngine()
     
@@ -67,8 +70,14 @@ public class SimplePlayEngine {
     // File to play.
     private var file: AVAudioFile?
     
+    // Output file
+    private var outputFile: AVAudioFile?
+    
     // Whether we are playing.
     private (set) var isPlaying = false
+    
+    // Whether we are recording.
+    private (set) var isRecording = false
     
     // This block will be called every render cycle and will receive MIDI events
     private let midiOutBlock: AUMIDIOutputEventBlock = { sampleTime, cable, length, data in return noErr }
@@ -84,10 +93,57 @@ public class SimplePlayEngine {
         guard let fileURL = Bundle.main.url(forResource: "West", withExtension: "aif") else {
             fatalError("\"West.aif\" file not found.")
         }
+        //print(engine.mainMixerNode.outputFormat(forBus: 0).settings)
+        
         setPlayerFile(fileURL)
         
         engine.prepare()
         setupMIDI()
+    }
+    
+    func handleRecording() {
+        if isRecording {
+            stopRecording()
+        } else {
+            startRecording()
+        }
+    }
+    
+    func startRecording() {
+        //recordStateChangeQueue.sync {
+            if !self.isRecording {
+                do {
+                    outputFile = try AVAudioFile(forWriting: URLFor(filename: "beat_machine1_output.aif")!, settings: engine.mainMixerNode.outputFormat(forBus: 0).settings, commonFormat: .pcmFormatFloat32, interleaved: false)
+                } catch {
+                    print("error creating output file")
+                }
+                isRecording = true
+                engine.mainMixerNode.installTap(onBus: 0, bufferSize: 1024, format: engine.mainMixerNode.outputFormat(forBus: 0)) { (buffer, time) -> Void in
+                    do {
+                        try self.outputFile?.write(from: buffer)
+                    } catch {
+                        print("Error info: \(error)")
+                    }
+                    return
+                }
+            }
+        //}
+    }
+
+    func stopRecording() {
+        //recordStateChangeQueue.sync {
+            if self.isRecording {
+                outputFile = nil
+                isRecording = false
+                engine.mainMixerNode.removeTap(onBus: 0)
+            }
+        //}
+    }
+
+
+    func URLFor(filename: String) -> URL? {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        return documentsDirectory.appendingPathComponent(filename)
     }
     
     private func setupMIDI() {
