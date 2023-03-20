@@ -174,8 +174,16 @@ public:
                     outputBuffers[channel][frameIndex] = 0;
                     
                     if (this->currentNotes.size() != 0) {
+                        float gain = 1.0f;
                         for (auto currentNote = currentNotes.begin(); currentNote != currentNotes.end(); ++currentNote) {
-                            outputBuffers[channel][frameIndex] += (*((float*)this->soundBuffers[*currentNote]->mBuffers[0].mData + this->playIndexes[*currentNote])) * 1.0 * mGain;
+                            if (this->playIndexes[*currentNote] < crossfadeSamples) {
+                                // Fade in
+                                gain = this->playIndexes[*currentNote] / crossfadeSamples;
+                            } else if (this->playIndexes[*currentNote] >= mSampleRate - crossfadeSamples && this->playIndexes[*currentNote] < mSampleRate) {
+                                // Fade out
+                                gain = (mSampleRate - this->playIndexes[*currentNote]) / crossfadeSamples;
+                            }
+                            outputBuffers[channel][frameIndex] += (*((float*)this->soundBuffers[*currentNote]->mBuffers[0].mData + this->playIndexes[*currentNote])) * 1.0 * gain * mGain;
                             this->playIndexes[*currentNote] += 1;
                         }
                     }
@@ -266,6 +274,7 @@ public:
     double mSampleRate = 44100.0;
     double mGain = 1.0;
     double mNoteEnvelope = 0.0;
+    double crossfadeSamples = 0.01 * 44100.0;
     
     bool mBypassed = false;
     AUAudioFrameCount mMaxFramesToRender = 1024;
