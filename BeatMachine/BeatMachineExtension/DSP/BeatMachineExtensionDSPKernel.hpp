@@ -32,6 +32,7 @@ public:
     UInt64 currentNoteTime = 0;
     int RECORD_NOTE = 0x0;
     std::set<int> currentNotes;
+    std::unordered_map<int, int> notesToEnd;
     int sampleIndexes [128];
     int playIndexes [128];
     std::unordered_map<AUParameterAddress, AUParameter*> paramRefs;
@@ -174,17 +175,29 @@ public:
                     outputBuffers[channel][frameIndex] = 0;
                     
                     if (this->currentNotes.size() != 0) {
-                        float gain = 1.0f;
                         for (auto currentNote = currentNotes.begin(); currentNote != currentNotes.end(); ++currentNote) {
-                            if (this->playIndexes[*currentNote] < crossfadeSamples) {
+                            float gain = 1.0f;
+                            if (playIndexes[*currentNote] < crossfadeSamples) {
                                 // Fade in
-                                gain = this->playIndexes[*currentNote] / crossfadeSamples;
-                            } else if (this->playIndexes[*currentNote] >= mSampleRate - crossfadeSamples && this->playIndexes[*currentNote] < mSampleRate) {
-                                // Fade out
-                                gain = (mSampleRate - this->playIndexes[*currentNote]) / crossfadeSamples;
+                                gain = playIndexes[*currentNote] / crossfadeSamples;
                             }
-                            outputBuffers[channel][frameIndex] += (*((float*)this->soundBuffers[*currentNote]->mBuffers[0].mData + this->playIndexes[*currentNote])) * 1.0 * gain * mGain;
-                            this->playIndexes[*currentNote] += 1;
+                            outputBuffers[channel][frameIndex] += (*((float*)soundBuffers[*currentNote]->mBuffers[0].mData + playIndexes[*currentNote])) * 1.0 * gain * mGain;
+                            playIndexes[*currentNote] += 1;
+                        }
+                    }
+                    if (notesToEnd.size() != 0) {
+                        for (auto noteToEnd = notesToEnd.begin(); noteToEnd != notesToEnd.end(); ++noteToEnd) {
+                            float gain = 1.0f;
+                            int noteNumber = noteToEnd->first;
+                            if (notesToEnd.at(noteNumber) < crossfadeSamples) {
+                                // Fade out
+                                gain = ((mSampleRate - notesToEnd.at(noteNumber)) / crossfadeSamples) / 100;
+                                notesToEnd[noteNumber] += 1;
+                                outputBuffers[channel][frameIndex] += (*((float*)soundBuffers[noteNumber]->mBuffers[0].mData + (playIndexes[noteNumber] + notesToEnd.at(noteNumber)))) * 1.0 * gain * mGain;
+                            } else {
+                                playIndexes[noteNumber] = 0;
+                                notesToEnd.erase(noteNumber);
+                            }
                         }
                     }
                 }
@@ -240,8 +253,9 @@ public:
                     thisObject->setParameterRef(BeatMachineExtensionParameterAddress::isRecording, 0.0);
                 } else {
                     thisObject->currentNotes.erase(noteNumber);
+                    thisObject->notesToEnd[noteNumber] = 0;
                     thisObject->sampleIndexes[noteNumber] = 0;
-                    thisObject->playIndexes[noteNumber] = 0;
+                    //thisObject->playIndexes[noteNumber] = 0;
                 }
             }
         };
