@@ -118,7 +118,7 @@ public class SimplePlayEngine {
                     print("error creating output file")
                 }
                 isRecording = true
-                engine.mainMixerNode.installTap(onBus: 0, bufferSize: 1024, format: engine.mainMixerNode.outputFormat(forBus: 0)) { (buffer, time) -> Void in
+                engine.mainMixerNode.installTap(onBus: 0, bufferSize: 4096, format: engine.mainMixerNode.outputFormat(forBus: 0)) { (buffer, time) -> Void in
                     do {
                         try self.outputFile?.write(from: buffer)
                     } catch {
