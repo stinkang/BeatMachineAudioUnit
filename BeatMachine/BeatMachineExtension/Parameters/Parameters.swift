@@ -34,6 +34,15 @@ let BeatMachineExtensionParameterSpecs = ParameterTreeSpec {
             valueRange: 0...127,
             defaultValue: 0
         )
+        ParameterSpec(
+            address: .NoteOn,
+            identifier: "NoteOn",
+            name: "Note On",
+            units: .generic,
+            valueRange: 0...1,
+            defaultValue: 0
+        )
+
     }
 }
 

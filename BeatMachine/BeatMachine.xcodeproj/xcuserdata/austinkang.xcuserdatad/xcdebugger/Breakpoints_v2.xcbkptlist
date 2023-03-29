@@ -254,8 +254,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "setParameter(address, value)"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "setParameter(address, value)"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,8 +286,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "setParameter(address, value)"
             landmarkType = "7">
          </BreakpointContent>
@@ -302,8 +302,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "process(inputBuffers, outputBuffers, bufferStartTime, frameCount)"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +318,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "process(inputBuffers, outputBuffers, bufferStartTime, frameCount)"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,8 +334,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "process(inputBuffers, outputBuffers, bufferStartTime, frameCount)"
             landmarkType = "7">
          </BreakpointContent>
@@ -350,8 +350,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "recordInputToSoundBuffer(inputBuffers, channel, frameIndex, currentNote)"
             landmarkType = "7">
          </BreakpointContent>
@@ -366,8 +366,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "process(inputBuffers, outputBuffers, bufferStartTime, frameCount)"
             landmarkType = "7">
          </BreakpointContent>
@@ -382,8 +382,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "process(inputBuffers, outputBuffers, bufferStartTime, frameCount)"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,8 +398,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "handleOneEvent(now, event)"
             landmarkType = "7">
          </BreakpointContent>
@@ -414,8 +414,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "process(inputBuffers, outputBuffers, bufferStartTime, frameCount)"
             landmarkType = "7">
          </BreakpointContent>
@@ -510,25 +510,9 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "setParameter(address, value)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "412F33DC-916A-472B-93A7-E53E4B471629"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "handleMIDIEventList(now, midiEvent)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -542,10 +526,10 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "BeatMachineExtensionDSPKernel"
-            landmarkType = "3">
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "addParameterRef(param)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -574,8 +558,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "setParameter(address, value)"
             landmarkType = "7">
          </BreakpointContent>
@@ -590,8 +574,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
             landmarkName = "handleMIDIEventList(now, midiEvent)"
             landmarkType = "7">
          </BreakpointContent>
@@ -606,8 +590,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "setMusicalContextBlock(contextBlock)"
             landmarkType = "7">
          </BreakpointContent>
@@ -622,8 +606,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "setMusicalContextBlock(contextBlock)"
             landmarkType = "7">
          </BreakpointContent>
@@ -638,8 +622,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "BeatMachineExtensionDSPKernel"
             landmarkType = "3">
          </BreakpointContent>
@@ -654,8 +638,8 @@
             filePath = "BeatMachineExtension/UI/MIDIView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -778,8 +762,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "BeatMachineExtensionDSPKernel"
             landmarkType = "3">
          </BreakpointContent>
@@ -794,8 +778,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "process(inputBuffers, outputBuffers, bufferStartTime, frameCount)"
             landmarkType = "7">
          </BreakpointContent>
@@ -810,8 +794,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "process(inputBuffers, outputBuffers, bufferStartTime, frameCount)"
             landmarkType = "7">
          </BreakpointContent>
@@ -826,8 +810,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "recordInputToSoundBuffer(inputBuffers, channel, frameIndex, currentNote)"
             landmarkType = "7">
          </BreakpointContent>
@@ -842,8 +826,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "handleMIDIEventList(now, midiEvent)"
             landmarkType = "7">
             <Locations>
@@ -920,10 +904,10 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "BeatMachineExtensionDSPKernel"
-            landmarkType = "3">
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "handleOneEvent(now, event)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1144,8 +1128,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "process(inputBuffers, outputBuffers, bufferStartTime, frameCount)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1160,8 +1144,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "handleOneEvent(now, event)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1178,7 +1162,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
             endingLineNumber = "114"
-            landmarkName = "startRecording()"
+            landmarkName = "startRecording(fileName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1226,7 +1210,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
             endingLineNumber = "120"
-            landmarkName = "startRecording()"
+            landmarkName = "startRecording(fileName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1258,7 +1242,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
             endingLineNumber = "127"
-            landmarkName = "startRecording()"
+            landmarkName = "startRecording(fileName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1274,7 +1258,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
             endingLineNumber = "125"
-            landmarkName = "startRecording()"
+            landmarkName = "startRecording(fileName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1306,7 +1290,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
             endingLineNumber = "126"
-            landmarkName = "startRecording()"
+            landmarkName = "startRecording(fileName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1336,8 +1320,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "setParameter(address, value)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1352,8 +1336,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "BeatMachineExtensionDSPKernel"
             landmarkType = "3">
          </BreakpointContent>
@@ -1368,8 +1352,8 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "process(inputBuffers, outputBuffers, bufferStartTime, frameCount)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1384,10 +1368,74 @@
             filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "process(inputBuffers, outputBuffers, bufferStartTime, frameCount)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EECB8E2F-5A5E-48E9-B338-03F381562A2A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeatMachineExtension/DSP/BeatMachineExtensionDSPKernel.hpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "handleMIDIEventList(now, midiEvent)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE5BB0AE-431E-41A8-934F-9F6CDE951DF2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeatMachineExtension/UI/BeatMachineExtensionMainView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A26195D3-F721-4F38-884F-A8A15435C29E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeatMachineExtension/UI/KeyboardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "WhiteKeyView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D39993C-FF0F-477F-A526-08CB2ACB9F0C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeatMachineExtension/UI/KeyboardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "WhiteKeyView"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

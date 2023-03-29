@@ -29,6 +29,7 @@ public:
     std::unordered_map<UInt32, AudioBufferList*> soundBuffers;
     float isRecording = 0.0;
     int MIDINote = 0;
+    bool noteOn = false;
     UInt64 currentNoteTime = 0;
     int RECORD_NOTE = 0x0;
     std::set<int> currentNotes;
@@ -78,6 +79,9 @@ public:
             case BeatMachineExtensionParameterAddress::MIDINote:
                 MIDINote = value;
                 break;
+            case BeatMachineExtensionParameterAddress::NoteOn:
+                noteOn = value;
+                break;
         }
     }
     
@@ -93,6 +97,9 @@ public:
                 break;
             case BeatMachineExtensionParameterAddress::MIDINote:
                 return (AUValue)MIDINote;
+                break;
+            case BeatMachineExtensionParameterAddress::NoteOn:
+                return (AUValue)noteOn;
                 break;
             default: return 0.f;
         }
@@ -240,22 +247,24 @@ public:
             if (message.channelVoice2.status == kMIDICVStatusNoteOn) {
                 UInt32 noteNumber = message.channelVoice2.note.number;
                 if (noteNumber == thisObject->RECORD_NOTE) {
-                    //thisObject->setParameter(BeatMachineExtensionParameterAddress::isRecording, 1.0);
                     thisObject->setParameterRef(BeatMachineExtensionParameterAddress::isRecording, 1.0);
                 } else {
                     thisObject->currentNotes.insert(noteNumber);
                     thisObject->setParameterRef(BeatMachineExtensionParameterAddress::MIDINote, noteNumber);
+                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::NoteOn, 1);
                 }
             } else if (message.channelVoice2.status == kMIDICVStatusNoteOff) {
                 UInt32 noteNumber = message.channelVoice2.note.number;
                 if (noteNumber == thisObject->RECORD_NOTE) {
-                    //thisObject->setParameter(BeatMachineExtensionParameterAddress::isRecording, 0.0);
                     thisObject->setParameterRef(BeatMachineExtensionParameterAddress::isRecording, 0.0);
                 } else {
                     thisObject->currentNotes.erase(noteNumber);
                     thisObject->notesToEnd[noteNumber] = 0;
                     thisObject->sampleIndexes[noteNumber] = 0;
-                    //thisObject->playIndexes[noteNumber] = 0;
+                    
+                    // current note off sent back to UI
+                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::MIDINote, noteNumber);
+                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::NoteOn, 0);
                 }
             }
         };

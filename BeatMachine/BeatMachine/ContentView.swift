@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var hostModel: AudioUnitHostModel
     @State var filename = "Filename"
+    @State var newFileName = ""
     @State var fileURL : URL?
     @State var showFileChooser = false
     var margin = 10.0
@@ -62,9 +63,9 @@ struct ContentView: View {
                         Text(hostModel.isPlaying ? "Stop" : "Play")
                     }
                     Spacer()
-                    Text("Record to File")
+                    TextField("File Name: ", text: $newFileName)
                     Button {
-                        hostModel.handleRecording()
+                        hostModel.handleRecording(fileName: newFileName)
                     } label: {
                         Text(hostModel.isRecording ? "Stop" : "Record")
                     }
