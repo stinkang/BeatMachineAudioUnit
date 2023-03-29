@@ -17,3 +17,6 @@ BeatMachine is an intuitive tool used for chopping up audio samples. The idea is
 5. At any desired time, press and hold a note from your MIDI controller to map a section of audio to that note (release to end mapping segment). You can do this for any note.
 6. Hit the red circle next to "Mapping Mode". Now the audio should stop, and you can hit any mapped MIDI pad to play the audio that you just mapped.
 7. If you'd like to record the resulting audio to a file, hit "Record" to begin recording and "Record" again to end recording. The output file is called "beat_machine_output.aif" and should be located in `~/Library/Containers/BeatMachine/Data/Documents`.
+
+
+Check out some experimental tracks I've made with BeatMachine + Logic: https://soundcloud.com/a-u-stinkang
