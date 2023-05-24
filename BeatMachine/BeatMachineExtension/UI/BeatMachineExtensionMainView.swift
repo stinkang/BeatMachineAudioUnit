@@ -18,8 +18,9 @@ struct BeatMachineExtensionMainView: View {
     var body: some View {
         VStack(spacing: 10) {
             ParameterSlider(param: parameterTree.global.gain)
-            IsRecordingView(param: parameterTree.global.isRecording)
-            KeyboardView(midiNote: parameterTree.global.MIDINote, noteOn: parameterTree.global.NoteOn)
+            IsRecordingView(param: parameterTree.global.samplingMode)
+            IsRecordingView(param: parameterTree.global.loopRecordMode)
+            //KeyboardView(midiNote: parameterTree.global.MIDINote, noteOn: parameterTree.global.NoteOn)
         }
     }
 }

@@ -16,6 +16,9 @@
 #include <iostream>
 #include <unordered_map>
 #include <set>
+#include "WavUtil.hpp"
+#include <fstream>
+#include "SoundBuffer.hpp"
 
 #import "BeatMachineExtension-Swift.h"
 #import "BeatMachineExtensionParameterAddresses.h"
@@ -25,35 +28,76 @@
  As a non-ObjC class, this is safe to use from render thread.
  */
 class BeatMachineExtensionDSPKernel {
-public:
-    std::unordered_map<UInt32, AudioBufferList*> soundBuffers;
-    float isRecording = 0.0;
+private:
+    AUHostMusicalContextBlock mMusicalContextBlock;
+    
+    // configuration parameters
+    double mSampleRate = 44100.0;
+    double mGain = 1.0;
+    double mNoteEnvelope = 0.0;
+    double crossfadeSamples = 0.01 * 44100.0;
+    bool mBypassed = false;
+    AUAudioFrameCount mMaxFramesToRender = 1024;
+    static const int bufferCount = 128; //128 MIDI notes
+    
+    // sampling member variables
+    std::array<SoundBuffer, bufferCount> soundBuffers;
+    float samplingMode = 0.0;
     int MIDINote = 0;
-    bool noteOn = false;
-    UInt64 currentNoteTime = 0;
     int RECORD_NOTE = 0x0;
+    int MUTE_NOTE = 0x1;
+    bool isMuted = false;
     std::set<int> currentNotes;
-    std::unordered_map<int, int> notesToEnd;
-    int sampleIndexes [128];
-    int playIndexes [128];
     std::unordered_map<AUParameterAddress, AUParameter*> paramRefs;
     
+    // looping member variables
+    int loopBufferSize;        // Size of our loop buffer (in samples)
+    float* loopBuffer;         // The loop buffer itself
+    int loopSampleIndex;           // Current position in the loop buffer
+    bool loopRecordMode;           // Whether we're currently recording
+    double beatsPerBar;        // Number of beats per bar (usually 4)
+    double tempo;              // The tempo (in BPM)
+    double loopLengthBars;     // The length of the loop (in bars)
+    
+    // metronome member variables
+    double metronomeFrequency;  // Frequency of the metronome click (in Hz)
+    double metronomeDuration;   // Duration of the metronome click (in seconds)
+    int metronomeSampleIndex;   // Current position in the metronome click
+    int metronomeSamplesPerBeat;// Number of samples per beat
+    std::vector<float> clickSound;
+    
+public:
     void initialize(int inputChannelCount, int outputChannelCount, double inSampleRate) {
         mSampleRate = inSampleRate;
-        for (UInt32 i = 0; i < 128; i++) {
-            AudioBufferList* bufferList = new AudioBufferList;
-            bufferList->mNumberBuffers = 1;
-
-            AudioBuffer& buffer = bufferList->mBuffers[0];
-            buffer.mNumberChannels = 1;
-            buffer.mDataByteSize = 1024 * sizeof(float);
-            buffer.mData = new float[441000];
-
-            this->soundBuffers.insert(std::make_pair(i, bufferList));
+        // Initialize all soundBuffers
+        for (auto &buffer : soundBuffers) {
+            buffer.initialize();
         }
+        
+        // initialize loop variables
+        beatsPerBar = 4.0;
+        loopLengthBars = 4.0;
+        tempo = 144.0;  // Default to 120 BPM. You may want to make this configurable.
+
+        // Calculate how many samples make up our loop
+        loopBufferSize = (int)((mSampleRate * 60.0 / tempo) * beatsPerBar * loopLengthBars);
+
+        // Allocate the loop buffer
+        loopBuffer = new float[loopBufferSize];
+        
+        // initialize metronome variables
+        metronomeFrequency = 1000.0;  // 1000 Hz
+        metronomeDuration = 0.1;     // 100 ms
+        metronomeSampleIndex = 0;
+        metronomeSamplesPerBeat = (int)(mSampleRate * 60.0 / tempo);
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"click" ofType:@"wav"];
+        std::string pathStr = [path UTF8String];
+        clickSound = load_wav_file(pathStr);
     }
     
     void deInitialize() {
+        delete[] loopBuffer;
     }
     
     // MARK: - Bypass
@@ -73,14 +117,11 @@ public:
             case BeatMachineExtensionParameterAddress::gain:
                 mGain = value;
                 break;
-            case BeatMachineExtensionParameterAddress::isRecording:
-                isRecording = value;
+            case BeatMachineExtensionParameterAddress::samplingMode:
+                samplingMode = value;
                 break;
-            case BeatMachineExtensionParameterAddress::MIDINote:
-                MIDINote = value;
-                break;
-            case BeatMachineExtensionParameterAddress::NoteOn:
-                noteOn = value;
+            case BeatMachineExtensionParameterAddress::loopRecordMode:
+                loopRecordMode = value;
                 break;
         }
     }
@@ -92,15 +133,13 @@ public:
             case BeatMachineExtensionParameterAddress::gain:
                 return (AUValue)mGain;
                 break;
-            case BeatMachineExtensionParameterAddress::isRecording:
-                return (AUValue)isRecording;
+            case BeatMachineExtensionParameterAddress::samplingMode:
+                return (AUValue)samplingMode;
                 break;
-            case BeatMachineExtensionParameterAddress::MIDINote:
-                return (AUValue)MIDINote;
+            case BeatMachineExtensionParameterAddress::loopRecordMode:
+                return (AUValue)loopRecordMode;
                 break;
-            case BeatMachineExtensionParameterAddress::NoteOn:
-                return (AUValue)noteOn;
-                break;
+
             default: return 0.f;
         }
     }
@@ -167,56 +206,41 @@ public:
         // Perform per sample dsp on the incoming float in before assigning it to out
         for (UInt32 channel = 0; channel < inputBuffers.size(); ++channel) {
             for (UInt32 frameIndex = 0; frameIndex < frameCount; ++frameIndex) {
-                
-                // Do your sample by sample dsp here...
-                
-                if (this->isRecording == 1.0) {
+                if (samplingMode == 1.0) {
                     outputBuffers[channel][frameIndex] = inputBuffers[channel][frameIndex] * 1.0 * mGain;
                     if (this->currentNotes.size() != 0) {
                         for (auto currentNote = currentNotes.begin(); currentNote != currentNotes.end(); ++currentNote) {
-                            recordInputToSoundBuffer(inputBuffers, channel, frameIndex, *currentNote);
+                            this->soundBuffers[*currentNote].recordSample(inputBuffers[channel][frameIndex]);
                         }
                     }
                 } else {
                     // reset outputBuffers
                     outputBuffers[channel][frameIndex] = 0;
-                    
                     if (this->currentNotes.size() != 0) {
                         for (auto currentNote = currentNotes.begin(); currentNote != currentNotes.end(); ++currentNote) {
-                            float gain = 1.0f;
-                            if (playIndexes[*currentNote] < crossfadeSamples) {
-                                // Fade in
-                                gain = playIndexes[*currentNote] / crossfadeSamples;
-                            }
-                            outputBuffers[channel][frameIndex] += (*((float*)soundBuffers[*currentNote]->mBuffers[0].mData + playIndexes[*currentNote])) * 1.0 * gain * mGain;
-                            playIndexes[*currentNote] += 1;
+                            outputBuffers[channel][frameIndex] += this->soundBuffers[*currentNote].playSample() * mGain;
                         }
                     }
-                    if (notesToEnd.size() != 0) {
-                        for (auto noteToEnd = notesToEnd.begin(); noteToEnd != notesToEnd.end(); ++noteToEnd) {
-                            float gain = 1.0f;
-                            int noteNumber = noteToEnd->first;
-                            if (notesToEnd.at(noteNumber) < crossfadeSamples) {
-                                // Fade out
-                                gain = ((mSampleRate - notesToEnd.at(noteNumber)) / crossfadeSamples) / 100;
-                                notesToEnd[noteNumber] += 1;
-                                outputBuffers[channel][frameIndex] += (*((float*)soundBuffers[noteNumber]->mBuffers[0].mData + (playIndexes[noteNumber] + notesToEnd.at(noteNumber)))) * 1.0 * gain * mGain;
-                            } else {
-                                playIndexes[noteNumber] = 0;
-                                notesToEnd.erase(noteNumber);
-                            }
+                    if (this->isMuted) {
+                        outputBuffers[channel][frameIndex] = 0;
+                    }
+                    
+                    if (loopRecordMode == 1.0) {
+                        // Check if it's time for a metronome click
+                        if (metronomeSampleIndex % metronomeSamplesPerBeat == 0) {
+                            metronomeSampleIndex = 0;
                         }
+                        
+                        // Apply the metronome click to the output
+                        if (metronomeSampleIndex < clickSound.size()) {
+                            float metronomeClick = clickSound[metronomeSampleIndex];
+                            outputBuffers[channel][frameIndex] += metronomeClick;
+                        }
+                        metronomeSampleIndex++;
                     }
                 }
             }
         }
-    }
-    
-    void recordInputToSoundBuffer(std::span<float const*> inputBuffers, UInt32 channel, UInt32 frameIndex, int currentNote) {
-        float* recordBufferChannel = (float*)this->soundBuffers[currentNote]->mBuffers[0].mData + this->sampleIndexes[currentNote];
-
-        std::memcpy(recordBufferChannel, &inputBuffers[channel][frameIndex], sizeof(float));
-        this->sampleIndexes[currentNote] += 1;
     }
     
     void handleOneEvent(AUEventSampleTime now, AURenderEvent const *event) {
@@ -247,24 +271,21 @@ public:
             if (message.channelVoice2.status == kMIDICVStatusNoteOn) {
                 UInt32 noteNumber = message.channelVoice2.note.number;
                 if (noteNumber == thisObject->RECORD_NOTE) {
-                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::isRecording, 1.0);
+                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::samplingMode, 1.0);
+                } else if (noteNumber == thisObject->MUTE_NOTE) {
+                    thisObject->isMuted = true;
                 } else {
                     thisObject->currentNotes.insert(noteNumber);
-                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::MIDINote, noteNumber);
-                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::NoteOn, 1);
                 }
             } else if (message.channelVoice2.status == kMIDICVStatusNoteOff) {
                 UInt32 noteNumber = message.channelVoice2.note.number;
                 if (noteNumber == thisObject->RECORD_NOTE) {
-                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::isRecording, 0.0);
+                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::samplingMode, 0.0);
+                } else if (noteNumber == thisObject->MUTE_NOTE) {
+                    thisObject->isMuted = false;
                 } else {
                     thisObject->currentNotes.erase(noteNumber);
-                    thisObject->notesToEnd[noteNumber] = 0;
-                    thisObject->sampleIndexes[noteNumber] = 0;
-                    
-                    // current note off sent back to UI
-                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::MIDINote, noteNumber);
-                    thisObject->setParameterRef(BeatMachineExtensionParameterAddress::NoteOn, 0);
+                    thisObject->soundBuffers[noteNumber].reset();
                 }
             }
         };
@@ -290,18 +311,4 @@ public:
                 break;
         }
     }
-    
-    // MARK: - Member Variables
-    AUHostMusicalContextBlock mMusicalContextBlock;
-    
-    double mSampleRate = 44100.0;
-    double mGain = 1.0;
-    double mNoteEnvelope = 0.0;
-    double crossfadeSamples = 0.01 * 44100.0;
-    
-    bool mBypassed = false;
-    AUAudioFrameCount mMaxFramesToRender = 1024;
-    
-//private:
-//    AUParameter *isRecordingParam;
 };

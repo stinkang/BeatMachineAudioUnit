@@ -20,15 +20,24 @@ struct KeyboardView: View {
                 }
             }
             HStack(spacing: 0) {
-                ForEach(0..<7*6, id: \.self) { key in
+                ForEach(0..<7*7, id: \.self) { key in
                     let note = 48 + key
                     let isBlack = !whiteKeys.contains(note % 12)
                     if isBlack {
                         BlackKeyView(midiNote: midiNote, noteOn: noteOn, noteNumber: note)
                     } else {
-                        RoundedRectangle(cornerRadius: 2)
-                            .fill(.clear)
-                            .frame(width: 12, height: keyHeight * 0.6)
+                        if note % 12 == 3 || note % 12 == 10 {
+                            RoundedRectangle(cornerRadius: 2)
+                                .fill(.gray)
+                                .frame(width: 12, height: keyHeight * 0.6)
+                            RoundedRectangle(cornerRadius: 2)
+                                .fill(.gray)
+                                .frame(width: 12, height: keyHeight * 0.6)
+                        } else {
+                            RoundedRectangle(cornerRadius: 2)
+                                .fill(.clear)
+                                .frame(width: 12, height: keyHeight * 0.6)
+                        }
                     }
                 }
             }

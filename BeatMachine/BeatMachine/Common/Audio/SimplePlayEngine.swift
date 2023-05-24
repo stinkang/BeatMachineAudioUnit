@@ -90,8 +90,8 @@ public class SimplePlayEngine {
     public init() {
         engine.attach(player)
         
-        guard let fileURL = Bundle.main.url(forResource: "West", withExtension: "aif") else {
-            fatalError("\"West.aif\" file not found.")
+        guard let fileURL = Bundle.main.url(forResource: "goodone", withExtension: "aif") else {
+            fatalError("\"goodone.aif\" file not found.")
         }
         //print(engine.mainMixerNode.outputFormat(forBus: 0).settings)
         
