@@ -3,10 +3,32 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "SoundBuffer::recordSample(float):SoundBuffer.hpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "&amp;sample">
+            </PersistentString>
+            <PersistentString
+               value = "*recordBufferChannel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "BeatMachineExtensionDSPKernel::process(std::__1::span&lt;float const*, 18446744073709551615ul&gt;, std::__1::span&lt;float*, 18446744073709551615ul&gt;, long long, unsigned int):BeatMachineExtensionDSPKernel.hpp">
          <PersistentStrings>
             <PersistentString
                value = "inputBuffers[channel][frameIndex]">
+            </PersistentString>
+            <PersistentString
+               value = "*currentNote">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SoundBuffer::recordSample(float const*):SoundBuffer.hpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "*recordBufferChannel">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -19,6 +41,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "BeatMachineExtensionDSPKernel::recordInputToSoundBuffer(AudioBufferList const*, unsigned int):BeatMachineExtensionDSPKernel.hpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(float*)inBufferList-&gt;mBuffers[0].mData;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MIDIView.body.getter:MIDIView.swift">
          <PersistentStrings>
             <PersistentString
@@ -26,14 +56,6 @@
             </PersistentString>
             <PersistentString
                value = "param.value">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "BeatMachineExtensionDSPKernel::recordInputToSoundBuffer(AudioBufferList const*, unsigned int):BeatMachineExtensionDSPKernel.hpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "(float*)inBufferList-&gt;mBuffers[0].mData;">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -41,6 +41,10 @@
 		968D9CE5299978D10021FB2D /* ObservableAUParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CE4299978D10021FB2D /* ObservableAUParameter.swift */; };
 		968D9CE7299978D10021FB2D /* AudioUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D9CE6299978D10021FB2D /* AudioUnitViewController.swift */; };
 		9691785F29B68931003E7D1C /* IsRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691785E29B68931003E7D1C /* IsRecordingView.swift */; };
+		96A1278F29E9EBD30039CED7 /* goodone.aif in Resources */ = {isa = PBXBuildFile; fileRef = 96A1278E29E9EBD30039CED7 /* goodone.aif */; };
+		96C4A3BF29E6912600B10C32 /* Mangina.aif in Resources */ = {isa = PBXBuildFile; fileRef = 96C4A3BE29E6912600B10C32 /* Mangina.aif */; };
+		96C4A3C129E91F5200B10C32 /* Lonesome.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 96C4A3C029E91F5200B10C32 /* Lonesome.mp3 */; };
+		96CF9C5E2A1DB6A700B660A3 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96CF9C5D2A1DB6A600B660A3 /* click.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +86,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9632810D29E68B5700380610 /* Mangina.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mangina.aif; sourceTree = "<group>"; };
 		963BD8E729B4039500CA5B88 /* West.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = West.aif; path = ../../../../../../Downloads/West.aif; sourceTree = "<group>"; };
+		9645FAED2A1E80D200CC4F5D /* libogg.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libogg.0.dylib; path = ../../../../../usr/local/Cellar/libogg/1.3.5/lib/libogg.0.dylib; sourceTree = "<group>"; };
+		9645FAEF2A1E813100CC4F5D /* libvorbis.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvorbis.0.dylib; path = ../../../../../usr/local/Cellar/libvorbis/1.3.7/lib/libvorbis.0.dylib; sourceTree = "<group>"; };
+		9645FAF12A1E814500CC4F5D /* libFLAC.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libFLAC.12.dylib; path = ../../../../../usr/local/Cellar/flac/1.4.2/lib/libFLAC.12.dylib; sourceTree = "<group>"; };
+		9645FAF32A1E815600CC4F5D /* libmp3lame.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmp3lame.0.dylib; path = ../../../../../usr/local/Cellar/lame/3.100/lib/libmp3lame.0.dylib; sourceTree = "<group>"; };
+		9645FAF52A1E817D00CC4F5D /* libmpg123.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpg123.0.dylib; path = ../../../../../usr/local/Cellar/mpg123/1.31.3/lib/libmpg123.0.dylib; sourceTree = "<group>"; };
+		9645FAF72A1E818B00CC4F5D /* libopus.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopus.0.dylib; path = ../../../../../usr/local/Cellar/opus/1.3.1/lib/libopus.0.dylib; sourceTree = "<group>"; };
+		9645FAF92A1E908E00CC4F5D /* libsndfile.1.0.35.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsndfile.1.0.35.dylib; path = ../../../../../usr/local/Cellar/libsndfile/1.2.0_1/lib/libsndfile.1.0.35.dylib; sourceTree = "<group>"; };
+		9645FAFB2A1EA27300CC4F5D /* WavUtil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WavUtil.hpp; sourceTree = "<group>"; };
 		9651113B29B71B8500D50207 /* MIDIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIView.swift; sourceTree = "<group>"; };
 		968BB4F429D381D20023B6D5 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		968D9C7C299978CF0021FB2D /* BeatMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +137,11 @@
 		968D9CE6299978D10021FB2D /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
 		968D9CE8299978D10021FB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9691785E29B68931003E7D1C /* IsRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsRecordingView.swift; sourceTree = "<group>"; };
+		96A1278E29E9EBD30039CED7 /* goodone.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = goodone.aif; path = ../../../../../../Downloads/goodone.aif; sourceTree = "<group>"; };
+		96C4A3BE29E6912600B10C32 /* Mangina.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Mangina.aif; path = ../../../../../../Music/Logic/Mangina.aif; sourceTree = "<group>"; };
+		96C4A3C029E91F5200B10C32 /* Lonesome.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Lonesome.mp3; path = "../../../../../../Music/Music/Media.localized/Music/Unknown Artist/Unknown Album/Lonesome.mp3"; sourceTree = "<group>"; };
+		96CF9C572A1D74B600B660A3 /* SoundBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SoundBuffer.hpp; sourceTree = "<group>"; };
+		96CF9C5D2A1DB6A600B660A3 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = click.wav; path = ../../../../../Music/Logic/sounds/click.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +184,7 @@
 				968D9CB0299978D10021FB2D /* BeatMachineUITests */,
 				968D9CBD299978D10021FB2D /* BeatMachineExtension */,
 				968D9C7D299978CF0021FB2D /* Products */,
+				96CF9C5F2A1DC03400B660A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,6 +238,10 @@
 			children = (
 				963BD8E729B4039500CA5B88 /* West.aif */,
 				968D9C86299978CF0021FB2D /* Synth.aif */,
+				96A1278E29E9EBD30039CED7 /* goodone.aif */,
+				96C4A3C029E91F5200B10C32 /* Lonesome.mp3 */,
+				9632810D29E68B5700380610 /* Mangina.aif */,
+				96C4A3BE29E6912600B10C32 /* Mangina.aif */,
 				968D9C88299978CF0021FB2D /* SimplePlayEngine.swift */,
 			);
 			path = Audio;
@@ -347,7 +370,10 @@
 		968D9CD7299978D10021FB2D /* DSP */ = {
 			isa = PBXGroup;
 			children = (
+				96CF9C5D2A1DB6A600B660A3 /* click.wav */,
 				968D9CD8299978D10021FB2D /* BeatMachineExtensionDSPKernel.hpp */,
+				96CF9C572A1D74B600B660A3 /* SoundBuffer.hpp */,
+				9645FAFB2A1EA27300CC4F5D /* WavUtil.hpp */,
 			);
 			path = DSP;
 			sourceTree = "<group>";
@@ -380,6 +406,20 @@
 				968D9CE1299978D10021FB2D /* AudioUnitViewController.xib */,
 			);
 			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		96CF9C5F2A1DC03400B660A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9645FAF92A1E908E00CC4F5D /* libsndfile.1.0.35.dylib */,
+				9645FAF72A1E818B00CC4F5D /* libopus.0.dylib */,
+				9645FAF52A1E817D00CC4F5D /* libmpg123.0.dylib */,
+				9645FAF32A1E815600CC4F5D /* libmp3lame.0.dylib */,
+				9645FAF12A1E814500CC4F5D /* libFLAC.12.dylib */,
+				9645FAEF2A1E813100CC4F5D /* libvorbis.0.dylib */,
+				9645FAED2A1E80D200CC4F5D /* libogg.0.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,6 +553,9 @@
 				963BD8E829B4039500CA5B88 /* West.aif in Resources */,
 				968D9C9D299978D10021FB2D /* Assets.xcassets in Resources */,
 				968D9C87299978CF0021FB2D /* Synth.aif in Resources */,
+				96C4A3BF29E6912600B10C32 /* Mangina.aif in Resources */,
+				96A1278F29E9EBD30039CED7 /* goodone.aif in Resources */,
+				96C4A3C129E91F5200B10C32 /* Lonesome.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +580,7 @@
 				968D9CD2299978D10021FB2D /* BeatMachineExtensionBufferedAudioBus.hpp in Resources */,
 				968D9CE3299978D10021FB2D /* AudioUnitViewController.xib in Resources */,
 				968D9CD0299978D10021FB2D /* BeatMachineExtensionAUProcessHelper.hpp in Resources */,
+				96CF9C5E2A1DB6A700B660A3 /* click.wav in Resources */,
 				968D9CBF299978D10021FB2D /* README.md in Resources */,
 				968D9CD9299978D10021FB2D /* BeatMachineExtensionDSPKernel.hpp in Resources */,
 			);
@@ -763,6 +807,16 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/libsndfile/1.2.0_1/lib,
+					/usr/local/Cellar/libogg/1.3.5/lib,
+					/usr/local/Cellar/libvorbis/1.3.7/lib,
+					/usr/local/Cellar/flac/1.4.2/lib,
+					/usr/local/Cellar/lame/3.100/lib,
+					/usr/local/Cellar/mpg123/1.31.3/lib,
+					/usr/local/Cellar/opus/1.3.1/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = BeatMachine.BeatMachine.BeatMachineExtension;
@@ -794,6 +848,16 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/libsndfile/1.2.0_1/lib,
+					/usr/local/Cellar/libogg/1.3.5/lib,
+					/usr/local/Cellar/libvorbis/1.3.7/lib,
+					/usr/local/Cellar/flac/1.4.2/lib,
+					/usr/local/Cellar/lame/3.100/lib,
+					/usr/local/Cellar/mpg123/1.31.3/lib,
+					/usr/local/Cellar/opus/1.3.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;

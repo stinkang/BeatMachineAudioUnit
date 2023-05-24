@@ -236,7 +236,20 @@ public:
                             float metronomeClick = clickSound[metronomeSampleIndex];
                             outputBuffers[channel][frameIndex] += metronomeClick;
                         }
+                        
+                        // Loop around to the start if we're at the end
+                        if (loopSampleIndex >= loopBufferSize) {
+                            loopSampleIndex = 0;
+                        }
+                        
+                        // Record our output into the loop buffer
+                        loopBuffer[loopSampleIndex] += outputBuffers[channel][frameIndex];
+                        
+                        // Replace the outputBuffer with the loop Buffer
+                        outputBuffers[channel][frameIndex] = loopBuffer[loopSampleIndex];
+                        
                         metronomeSampleIndex++;
+                        loopSampleIndex++;
                     }
                 }
             }
