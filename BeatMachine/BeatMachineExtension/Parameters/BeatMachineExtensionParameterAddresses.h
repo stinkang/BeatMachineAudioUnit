@@ -15,8 +15,8 @@ namespace BeatMachineExtensionParameterAddress {
 
 typedef NS_ENUM(AUParameterAddress, BeatMachineExtensionParameterAddress) {
     gain = 0,
-    isRecording = 1,
-    MIDINote = 2
+    samplingMode = 1,
+    loopRecordMode = 2
 };
 
 #ifdef __cplusplus

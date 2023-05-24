@@ -90,8 +90,8 @@ public class SimplePlayEngine {
     public init() {
         engine.attach(player)
         
-        guard let fileURL = Bundle.main.url(forResource: "West", withExtension: "aif") else {
-            fatalError("\"West.aif\" file not found.")
+        guard let fileURL = Bundle.main.url(forResource: "goodone", withExtension: "aif") else {
+            fatalError("\"goodone.aif\" file not found.")
         }
         //print(engine.mainMixerNode.outputFormat(forBus: 0).settings)
         
@@ -101,24 +101,24 @@ public class SimplePlayEngine {
         setupMIDI()
     }
     
-    func handleRecording() {
+    func handleRecording(fileName: String) {
         if isRecording {
             stopRecording()
         } else {
-            startRecording()
+            startRecording(fileName: fileName)
         }
     }
     
-    func startRecording() {
+    func startRecording(fileName: String) {
         //recordStateChangeQueue.sync {
             if !self.isRecording {
                 do {
-                    outputFile = try AVAudioFile(forWriting: URLFor(filename: "beat_machine_output.aif")!, settings: engine.mainMixerNode.outputFormat(forBus: 0).settings, commonFormat: .pcmFormatFloat32, interleaved: false)
+                    outputFile = try AVAudioFile(forWriting: URLFor(filename: fileName + ".aif")!, settings: engine.mainMixerNode.outputFormat(forBus: 0).settings, commonFormat: .pcmFormatFloat32, interleaved: false)
                 } catch {
                     print("error creating output file")
                 }
                 isRecording = true
-                engine.mainMixerNode.installTap(onBus: 0, bufferSize: 4096, format: engine.mainMixerNode.outputFormat(forBus: 0)) { (buffer, time) -> Void in
+                engine.mainMixerNode.installTap(onBus: 0, bufferSize: 8192, format: engine.mainMixerNode.outputFormat(forBus: 0)) { (buffer, time) -> Void in
                     do {
                         try self.outputFile?.write(from: buffer)
                     } catch {

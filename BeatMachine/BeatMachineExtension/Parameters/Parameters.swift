@@ -19,20 +19,20 @@ let BeatMachineExtensionParameterSpecs = ParameterTreeSpec {
             defaultValue: 0.25
         )
         ParameterSpec(
-            address: .isRecording,
-            identifier: "isRecording",
-            name: "Is Recording",
+            address: .samplingMode,
+            identifier: "samplingMode",
+            name: "Sampling Mode",
             units: .generic,
             valueRange: 0.0...1.0,
             defaultValue: 0.0
         )
         ParameterSpec(
-            address: .MIDINote,
-            identifier: "MIDINote",
-            name: "MIDI Note",
+            address: .loopRecordMode,
+            identifier: "loopRecordMode",
+            name: "Loop Record Mode",
             units: .generic,
-            valueRange: 0...127,
-            defaultValue: 0
+            valueRange: 0.0...1.0,
+            defaultValue: 0.0
         )
     }
 }

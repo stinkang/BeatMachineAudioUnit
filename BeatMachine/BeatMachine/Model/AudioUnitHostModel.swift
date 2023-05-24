@@ -90,8 +90,8 @@ class AudioUnitHostModel: ObservableObject {
         playEngine.stopPlaying()
     }
     
-    func handleRecording() {
-        playEngine.handleRecording()
+    func handleRecording(fileName: String) {
+        playEngine.handleRecording(fileName: fileName)
     }
     
     func setNewFile(url: URL?) {
